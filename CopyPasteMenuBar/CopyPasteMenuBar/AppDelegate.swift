@@ -17,12 +17,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let statusButton = statusItem.button {
-            statusButton.image = NSImage(systemSymbolName: "chart.line.uptrend.xyaxis.circle",
-                                         accessibilityDescription: "Chart Line")
+            statusButton.image = NSImage(systemSymbolName: "hammer.circle",
+                                         accessibilityDescription: "Tool")
             statusButton.action = #selector(togglePopover)
         }
         popover = NSPopover()
-        popover.contentSize = NSSize(width: 300, height: 300)
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(rootView: ContentView(taskListStore: Store(initialState: TaskNumberListFeature.State(tasks: [])) {
             TaskNumberListFeature()._printChanges()

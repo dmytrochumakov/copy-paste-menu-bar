@@ -7,15 +7,12 @@
 
 import Foundation
 
-enum QABuildReportEnviroment: String, CaseIterable, Identifiable {
+enum QABuildReportEnviroment: String, CaseIterable {
 
     case stage
     case prod
     case test
     case dev
-
-    var id: String {
-        rawValue
-    }
+    case unknown
 
 }

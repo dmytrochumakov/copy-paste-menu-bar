@@ -14,12 +14,12 @@ struct ContentView: View {
     var qaBuildReportStore: StoreOf<QABuildReportFeature>
 
     var body: some View {
-        VStack(alignment: .leading,
-               spacing: .zero) {
-            TaskNumberListView(store: taskListStore,
-                               qaBuildReportStore: qaBuildReportStore)
+        ScrollView(.vertical, showsIndicators: true) {
+            VStack {
+                TaskNumberListView(store: taskListStore)
+                QABuildReportView(store: qaBuildReportStore)
+            }
         }
-               .frame(width: 300, height: 300)
     }
 
 }

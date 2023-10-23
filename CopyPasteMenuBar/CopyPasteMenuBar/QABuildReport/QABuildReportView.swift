@@ -10,38 +10,32 @@ import ComposableArchitecture
 
 struct QABuildReportView: View {
 
-    @State private var enviroment = QABuildReportEnviroment.stage
-    @State private var firebaeLink = ""
-    @State private var azureLink = ""
-
     var store: StoreOf<QABuildReportFeature>
 
     var body: some View {
-        Form {
-            Picker("Pick enviroment", selection: $enviroment) {
-                ForEach(QABuildReportEnviroment.allCases) {
-                    Text($0.rawValue)
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            Form {
+                Picker("Pick enviroment", selection: viewStore.binding(get: \.enviroment, send: { .enviromentChanged($0) })) {
+                    ForEach(QABuildReportEnviroment.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                Group {
+                    Text("Enter Firebae link")
+                    TextField("", text: viewStore.binding(get: \.firebaeLink, send: { .firebaeLinkChanged($0) }))
+                }
+                Group {
+                    Text("Enter Azure link")
+                    TextField("", text: viewStore.binding(get: \.azureLink, send: { .azureLinkChanged($0) }))
+                }
+                Button("Copy") {
+                    viewStore.send(.copy)
                 }
             }
-            .pickerStyle(.segmented)
-            Group {
-                Text("Enter Firebae link")
-                TextField("", text: $firebaeLink)
-            }
-            Group {
-                Text("Enter Azure link")
-                TextField("", text: $azureLink)
-            }
-            Button("Copy") {
-                store.send(.copy(data: QABuildData(enviroment: enviroment,
-                                                   firebaeLink: firebaeLink,
-                                                   azureLink: azureLink)))
-            }
+            .padding()
         }
-        .padding()
     }
-
-
 
 }
 

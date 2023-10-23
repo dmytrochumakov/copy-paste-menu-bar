@@ -14,7 +14,6 @@
 		8477A07C2AE6389A00C67000 /* QABuildReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A07B2AE6389A00C67000 /* QABuildReportView.swift */; };
 		8477A07E2AE638B300C67000 /* QABuildReportEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A07D2AE638B300C67000 /* QABuildReportEnviroment.swift */; };
 		8477A0802AE638FA00C67000 /* QABuildReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A07F2AE638FA00C67000 /* QABuildReportFeature.swift */; };
-		8477A0822AE639FC00C67000 /* QABuildData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A0812AE639FC00C67000 /* QABuildData.swift */; };
 		84EDC3D32AE0EC0B00463365 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 84EDC3D22AE0EC0B00463365 /* ComposableArchitecture */; };
 		84EDC3D62AE0F09C00463365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDC3D52AE0F09C00463365 /* AppDelegate.swift */; };
 		84EDC3D82AE0FD0400463365 /* TaskNumberListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDC3D72AE0FD0400463365 /* TaskNumberListFeature.swift */; };
@@ -33,7 +32,6 @@
 		8477A07B2AE6389A00C67000 /* QABuildReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildReportView.swift; sourceTree = "<group>"; };
 		8477A07D2AE638B300C67000 /* QABuildReportEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildReportEnviroment.swift; sourceTree = "<group>"; };
 		8477A07F2AE638FA00C67000 /* QABuildReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildReportFeature.swift; sourceTree = "<group>"; };
-		8477A0812AE639FC00C67000 /* QABuildData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildData.swift; sourceTree = "<group>"; };
 		84EDC3D52AE0F09C00463365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EDC3D72AE0FD0400463365 /* TaskNumberListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNumberListFeature.swift; sourceTree = "<group>"; };
 		84EDC3DA2AE14FB600463365 /* TaskNumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNumberListView.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				8477A07B2AE6389A00C67000 /* QABuildReportView.swift */,
 				8477A07D2AE638B300C67000 /* QABuildReportEnviroment.swift */,
 				8477A07F2AE638FA00C67000 /* QABuildReportFeature.swift */,
-				8477A0812AE639FC00C67000 /* QABuildData.swift */,
 			);
 			path = QABuildReport;
 			sourceTree = "<group>";
@@ -239,7 +236,6 @@
 			files = (
 				84EDC3D62AE0F09C00463365 /* AppDelegate.swift in Sources */,
 				8463B2992AD80D7000506657 /* ContentView.swift in Sources */,
-				8477A0822AE639FC00C67000 /* QABuildData.swift in Sources */,
 				84EDC3DB2AE14FB600463365 /* TaskNumberListView.swift in Sources */,
 				8477A07C2AE6389A00C67000 /* QABuildReportView.swift in Sources */,
 				84EDC3DE2AE154AE00463365 /* AddTaskNumberView.swift in Sources */,
