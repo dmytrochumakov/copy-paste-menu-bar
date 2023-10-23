@@ -14,10 +14,15 @@ struct ContentView: View {
     var qaBuildReportStore: StoreOf<QABuildReportFeature>
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            VStack {
-                TaskNumberListView(store: taskListStore)
-                QABuildReportView(store: qaBuildReportStore)
+        VStack {
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack {
+                    TaskNumberListView(store: taskListStore)
+                    QABuildReportView(store: qaBuildReportStore)
+                }
             }
         }
     }
