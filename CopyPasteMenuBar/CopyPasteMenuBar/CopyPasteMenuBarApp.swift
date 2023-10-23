@@ -15,7 +15,7 @@ struct CopyPasteMenuBarApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(taskListStore: Store(initialState: TaskNumberListFeature.State(tasks: [])) {
+            ContentView(taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
                 TaskNumberListFeature()._printChanges()
             }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
                 QABuildReportFeature()._printChanges()

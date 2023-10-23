@@ -15,7 +15,7 @@ struct AddTaskNumberView: View {
 
     var body: some View {
         TextField("task number", text: $taskNumber)
-        Button("add task") {
+        Button("add task number") {
             addTaskButtonTapped(taskNumber)
         }
     }

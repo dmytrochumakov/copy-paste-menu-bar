@@ -23,7 +23,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
         popover = NSPopover()
         popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: ContentView(taskListStore: Store(initialState: TaskNumberListFeature.State(tasks: [])) {
+        popover.contentViewController = NSHostingController(rootView: ContentView(taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
             TaskNumberListFeature()._printChanges()
         }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
             QABuildReportFeature()._printChanges()

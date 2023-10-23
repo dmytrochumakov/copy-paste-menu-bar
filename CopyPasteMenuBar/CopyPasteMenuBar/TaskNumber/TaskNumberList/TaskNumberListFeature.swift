@@ -8,14 +8,8 @@
 import ComposableArchitecture
 import AppKit
 
-struct TaskNumber: Equatable, Identifiable, Codable {
-
-    var id: String {
-        number
-    }
-
+struct TaskNumber: Equatable, Codable, Hashable {
     let number: String
-
 }
 
 struct TaskNumberListFeature: Reducer {
@@ -26,12 +20,12 @@ struct TaskNumberListFeature: Reducer {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .addTask(let number):
-                state.tasks.append(.init(number: "#\(number) - "))
-                let encoded = try? JSONEncoder().encode(state.tasks)
+            case .addTaskNumber(let number):
+                state.taskNumbers.append(.init(number: "#\(number) - "))
+                let encoded = try? JSONEncoder().encode(state.taskNumbers)
                 userDefaults.set(encoded, forKey: taskKey)
                 return .none
-            case .copyTask(let number):
+            case .copyTaskNumber(let number):
                 let pasteboard = NSPasteboard.general
                 pasteboard.declareTypes([.string], owner: nil)
                 pasteboard.setString(number, forType: .string)
@@ -42,20 +36,26 @@ struct TaskNumberListFeature: Reducer {
                 else {
                     return .none
                 }
-                state.tasks = (try? JSONDecoder().decode([TaskNumber].self, from: data)) ?? []
+                state.taskNumbers = (try? JSONDecoder().decode([TaskNumber].self, from: data)) ?? []
+                return .none
+            case .delete(let taskNumber):
+                state.taskNumbers.removeAll(where: { $0 == taskNumber })
+                let encoded = try? JSONEncoder().encode(state.taskNumbers)
+                userDefaults.set(encoded, forKey: taskKey)
                 return .none
             }
         }
     }
 
     struct State: Equatable {
-        var tasks: [TaskNumber]
+        var taskNumbers: [TaskNumber]
     }
 
     enum Action: Equatable {
-        case addTask(number: String)
-        case copyTask(number: String)
+        case addTaskNumber(_ number: String)
+        case copyTaskNumber(_ number: String)
         case load
+        case delete(_ taskNumber: TaskNumber)
     }
 
 }
