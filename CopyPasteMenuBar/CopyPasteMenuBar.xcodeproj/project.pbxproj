@@ -14,6 +14,7 @@
 		8477A07C2AE6389A00C67000 /* QABuildReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A07B2AE6389A00C67000 /* QABuildReportView.swift */; };
 		8477A07E2AE638B300C67000 /* QABuildReportEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A07D2AE638B300C67000 /* QABuildReportEnviroment.swift */; };
 		8477A0802AE638FA00C67000 /* QABuildReportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A07F2AE638FA00C67000 /* QABuildReportFeature.swift */; };
+		84C10A092AE77F8B00318D3D /* CredentialsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10A082AE77F8B00318D3D /* CredentialsListView.swift */; };
 		84EDC3D32AE0EC0B00463365 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 84EDC3D22AE0EC0B00463365 /* ComposableArchitecture */; };
 		84EDC3D62AE0F09C00463365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDC3D52AE0F09C00463365 /* AppDelegate.swift */; };
 		84EDC3D82AE0FD0400463365 /* TaskNumberListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDC3D72AE0FD0400463365 /* TaskNumberListFeature.swift */; };
@@ -32,6 +33,7 @@
 		8477A07B2AE6389A00C67000 /* QABuildReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildReportView.swift; sourceTree = "<group>"; };
 		8477A07D2AE638B300C67000 /* QABuildReportEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildReportEnviroment.swift; sourceTree = "<group>"; };
 		8477A07F2AE638FA00C67000 /* QABuildReportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QABuildReportFeature.swift; sourceTree = "<group>"; };
+		84C10A082AE77F8B00318D3D /* CredentialsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListView.swift; sourceTree = "<group>"; };
 		84EDC3D52AE0F09C00463365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EDC3D72AE0FD0400463365 /* TaskNumberListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNumberListFeature.swift; sourceTree = "<group>"; };
 		84EDC3DA2AE14FB600463365 /* TaskNumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNumberListView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		8463B2952AD80D7000506657 /* CopyPasteMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				84C10A072AE77F6300318D3D /* Credentials */,
 				8477A07A2AE62D3B00C67000 /* QABuildReport */,
 				8477A0792AE62CE200C67000 /* TaskNumber */,
 				8463B2962AD80D7000506657 /* CopyPasteMenuBarApp.swift */,
@@ -108,6 +111,14 @@
 				8477A07F2AE638FA00C67000 /* QABuildReportFeature.swift */,
 			);
 			path = QABuildReport;
+			sourceTree = "<group>";
+		};
+		84C10A072AE77F6300318D3D /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+				84C10A082AE77F8B00318D3D /* CredentialsListView.swift */,
+			);
+			path = Credentials;
 			sourceTree = "<group>";
 		};
 		84EDC3D92AE1024B00463365 /* TaskNumberList */ = {
@@ -234,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C10A092AE77F8B00318D3D /* CredentialsListView.swift in Sources */,
 				84EDC3D62AE0F09C00463365 /* AppDelegate.swift in Sources */,
 				8463B2992AD80D7000506657 /* ContentView.swift in Sources */,
 				84EDC3DB2AE14FB600463365 /* TaskNumberListView.swift in Sources */,

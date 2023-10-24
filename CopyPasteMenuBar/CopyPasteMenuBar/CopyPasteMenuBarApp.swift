@@ -19,6 +19,8 @@ struct CopyPasteMenuBarApp: App {
                 TaskNumberListFeature()._printChanges()
             }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
                 QABuildReportFeature()._printChanges()
+            }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
+                CredentialsListFeature()._printChanges()
             })
         }
     }

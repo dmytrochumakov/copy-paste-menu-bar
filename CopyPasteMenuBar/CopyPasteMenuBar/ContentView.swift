@@ -12,6 +12,7 @@ struct ContentView: View {
 
     var taskListStore: StoreOf<TaskNumberListFeature>
     var qaBuildReportStore: StoreOf<QABuildReportFeature>
+    var credentialsListStore: StoreOf<CredentialsListFeature>
 
     var body: some View {
         VStack {
@@ -22,6 +23,7 @@ struct ContentView: View {
                 VStack {
                     TaskNumberListView(store: taskListStore)
                     QABuildReportView(store: qaBuildReportStore)
+                    CredentialsListView(store: credentialsListStore)
                 }
             }
         }
@@ -34,5 +36,7 @@ struct ContentView: View {
         TaskNumberListFeature()._printChanges()
     }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
         QABuildReportFeature()._printChanges()
+    }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
+        CredentialsListFeature()._printChanges()
     })
 }
