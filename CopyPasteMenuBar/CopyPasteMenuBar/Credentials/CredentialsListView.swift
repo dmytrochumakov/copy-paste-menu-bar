@@ -55,10 +55,10 @@ struct CredentialsListFeature: Reducer {
                 let encoded = try? JSONEncoder().encode(state.credentials)
                 userDefaults.set(encoded, forKey: credentialKey)
                 return .none
-            case .copy:
+            case .copy(let credential):
                 let pasteboard = NSPasteboard.general
                 pasteboard.declareTypes([.string], owner: nil)
-                pasteboard.setString(state.dataField, forType: .string)
+                pasteboard.setString(credential.data, forType: .string)
                 return .none
             case .load:
                 guard
@@ -82,7 +82,7 @@ struct CredentialsListFeature: Reducer {
         case nameFieldChanged(_ newValue: String)
         case dataFieldChanged(_ newValue: String)
         case add
-        case copy
+        case copy(_ credential: Credential)
         case load
     }
 
@@ -107,7 +107,7 @@ struct CredentialsListView: View {
                         HStack {
                             Text(credential.data)
                             Button("Copy data") {
-                                viewStore.send(.copy)
+                                viewStore.send(.copy(credential))
                             }
                         }
                     }
