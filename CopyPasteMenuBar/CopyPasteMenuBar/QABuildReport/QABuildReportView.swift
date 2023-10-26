@@ -23,11 +23,15 @@ struct QABuildReportView: View {
                 .pickerStyle(.segmented)
                 Group {
                     Text("Enter Azure link")
-                    TextField("", text: viewStore.binding(get: \.azureLink, send: { .azureLinkChanged($0) }))
+                    let azureLink = viewStore.binding(get: \.azureLink, send: { .azureLinkChanged($0) })
+                    TextField("", text: azureLink)
+                        .modifier(TextFieldClearButtonModifier(text: azureLink))
                 }
                 Group {
                     Text("Enter Firebae link")
-                    TextField("", text: viewStore.binding(get: \.firebaeLink, send: { .firebaeLinkChanged($0) }))
+                    let firebaeLink = viewStore.binding(get: \.firebaeLink, send: { .firebaeLinkChanged($0) })
+                    TextField("", text: firebaeLink)
+                        .modifier(TextFieldClearButtonModifier(text:firebaeLink))
                 }
                 Button("Copy") {
                     viewStore.send(.copy)

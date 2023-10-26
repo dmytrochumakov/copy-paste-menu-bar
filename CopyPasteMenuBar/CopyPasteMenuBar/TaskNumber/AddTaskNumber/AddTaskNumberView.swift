@@ -15,6 +15,7 @@ struct AddTaskNumberView: View {
 
     var body: some View {
         TextField("task number", text: $taskNumber)
+            .modifier(TextFieldClearButtonModifier(text: $taskNumber))
         Button("add task number") {
             addTaskButtonTapped(taskNumber)
         }
