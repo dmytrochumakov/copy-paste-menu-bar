@@ -23,8 +23,8 @@ struct QABuildReportFeature: Reducer {
                 return .none
             case .copy:
                 copyToPasteboard(createQABuildReport(state.enviroment,
-                                                         state.firebaeLink,
-                                                         state.azureLink))
+                                                     cleanUp(state.firebaeLink),
+                                                     cleanUp(state.azureLink)))
                 return .none
             case .simpleToastIsPresentedChanged(let newValue):
                 state.simpleToastIsPresented = newValue
@@ -74,6 +74,16 @@ struct QABuildReportFeature: Reducer {
         oneNewLine
         +
         "\(azureLink)"
+    }
+
+}
+
+private extension QABuildReportFeature {
+
+    func cleanUp(_ link: String) -> String {
+        link
+            .replacingOccurrences(of: "\"", with: "")
+            .replacingOccurrences(of: "?", with: "")
     }
 
 }
