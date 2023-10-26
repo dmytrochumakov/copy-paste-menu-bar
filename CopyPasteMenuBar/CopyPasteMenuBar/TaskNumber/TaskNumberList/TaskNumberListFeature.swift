@@ -5,8 +5,8 @@
 //  Created by Dmytro Chumakov on 19.10.2023.
 //
 
+import Foundation
 import ComposableArchitecture
-import AppKit
 
 struct TaskNumber: Equatable, Codable, Hashable {
     let number: String
@@ -26,9 +26,7 @@ struct TaskNumberListFeature: Reducer {
                 userDefaults.set(encoded, forKey: taskKey)
                 return .none
             case .copyTaskNumber(let number):
-                let pasteboard = NSPasteboard.general
-                pasteboard.declareTypes([.string], owner: nil)
-                pasteboard.setString(number, forType: .string)
+                copyToPasteboard(number)
                 return .none
             case .load:
                 guard

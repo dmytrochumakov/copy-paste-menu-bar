@@ -6,7 +6,6 @@
 //
 
 import ComposableArchitecture
-import AppKit
 
 struct QABuildReportFeature: Reducer {
 
@@ -23,12 +22,9 @@ struct QABuildReportFeature: Reducer {
                 state.azureLink = newValue
                 return .none
             case .copy:
-                let pasteboard = NSPasteboard.general
-                pasteboard.declareTypes([.string], owner: nil)
-                pasteboard.setString(createQABuildReport(state.enviroment,
+                copyToPasteboard(createQABuildReport(state.enviroment,
                                                          state.firebaeLink,
-                                                         state.azureLink),
-                                     forType: .string)
+                                                         state.azureLink))
                 return .none
             case .simpleToastIsPresentedChanged(let newValue):
                 state.simpleToastIsPresented = newValue

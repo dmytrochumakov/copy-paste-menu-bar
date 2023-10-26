@@ -7,7 +7,6 @@
 
 import Foundation
 import ComposableArchitecture
-import AppKit
 
 struct Credential: Hashable, Codable {
     let name: String
@@ -35,9 +34,7 @@ struct CredentialsListFeature: Reducer {
                 userDefaults.set(encoded, forKey: credentialKey)
                 return .none
             case .copy(let credential):
-                let pasteboard = NSPasteboard.general
-                pasteboard.declareTypes([.string], owner: nil)
-                pasteboard.setString(credential.data, forType: .string)
+                copyToPasteboard(credential.data)
                 return .none
             case .load:
                 guard

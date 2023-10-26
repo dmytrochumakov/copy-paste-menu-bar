@@ -10,6 +10,7 @@
 		8448E19F2AEA23E000337070 /* CredentialsListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19C2AEA23E000337070 /* CredentialsListViewMock.swift */; };
 		8448E1A02AEA23E000337070 /* CredentialsListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19D2AEA23E000337070 /* CredentialsListFeature.swift */; };
 		8448E1A12AEA23E000337070 /* CredentialsListFeatureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19E2AEA23E000337070 /* CredentialsListFeatureMock.swift */; };
+		8448E1A62AEA291E00337070 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E1A52AEA291E00337070 /* Helpers.swift */; };
 		8463B2972AD80D7000506657 /* CopyPasteMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B2962AD80D7000506657 /* CopyPasteMenuBarApp.swift */; };
 		8463B2992AD80D7000506657 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B2982AD80D7000506657 /* ContentView.swift */; };
 		8463B29D2AD80D7100506657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8463B29C2AD80D7100506657 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		8448E19C2AEA23E000337070 /* CredentialsListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListViewMock.swift; sourceTree = "<group>"; };
 		8448E19D2AEA23E000337070 /* CredentialsListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListFeature.swift; sourceTree = "<group>"; };
 		8448E19E2AEA23E000337070 /* CredentialsListFeatureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListFeatureMock.swift; sourceTree = "<group>"; };
+		8448E1A52AEA291E00337070 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8463B2932AD80D7000506657 /* CopyPasteMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPasteMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463B2962AD80D7000506657 /* CopyPasteMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPasteMenuBarApp.swift; sourceTree = "<group>"; };
 		8463B2982AD80D7000506657 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8448E1A42AEA291000337070 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8448E1A52AEA291E00337070 /* Helpers.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		8463B28A2AD80D7000506657 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		8463B2952AD80D7000506657 /* CopyPasteMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				8448E1A42AEA291000337070 /* Core */,
 				84C10A072AE77F6300318D3D /* CredentialsList */,
 				8477A07A2AE62D3B00C67000 /* QABuildReport */,
 				8477A0792AE62CE200C67000 /* TaskNumber */,
@@ -267,6 +278,7 @@
 				8477A07E2AE638B300C67000 /* QABuildReportEnviroment.swift in Sources */,
 				8463B2972AD80D7000506657 /* CopyPasteMenuBarApp.swift in Sources */,
 				84EDC3D82AE0FD0400463365 /* TaskNumberListFeature.swift in Sources */,
+				8448E1A62AEA291E00337070 /* Helpers.swift in Sources */,
 				8477A0802AE638FA00C67000 /* QABuildReportFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
