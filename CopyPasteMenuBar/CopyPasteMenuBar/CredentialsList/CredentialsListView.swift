@@ -19,7 +19,13 @@ struct CredentialsListView: View {
                     VStack {
                         Text(credential.name)
                         HStack {
-                            Text(credential.data)
+                            if credential.data.contains("https") {
+                                Link(destination: URL(string: credential.data)!, label: {                                    
+                                    Text(credential.data)
+                                })
+                            } else {
+                                Text(credential.data)
+                            }
                             Button("Copy data") {
                                 viewStore.send(.copy(credential))
                             }
