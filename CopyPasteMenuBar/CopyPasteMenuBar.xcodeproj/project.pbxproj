@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841D8F402AF0CAC700DED04C /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D8F3F2AF0CAC700DED04C /* AppStore.swift */; };
 		8448E19F2AEA23E000337070 /* CredentialsListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19C2AEA23E000337070 /* CredentialsListViewMock.swift */; };
 		8448E1A02AEA23E000337070 /* CredentialsListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19D2AEA23E000337070 /* CredentialsListFeature.swift */; };
 		8448E1A12AEA23E000337070 /* CredentialsListFeatureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19E2AEA23E000337070 /* CredentialsListFeatureMock.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841D8F3F2AF0CAC700DED04C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		8448E19C2AEA23E000337070 /* CredentialsListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListViewMock.swift; sourceTree = "<group>"; };
 		8448E19D2AEA23E000337070 /* CredentialsListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListFeature.swift; sourceTree = "<group>"; };
 		8448E19E2AEA23E000337070 /* CredentialsListFeatureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListFeatureMock.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				8448E1A52AEA291E00337070 /* Helpers.swift */,
 				8448E1A72AEA3DBE00337070 /* TextFieldClearButtonModifier.swift */,
+				841D8F3F2AF0CAC700DED04C /* AppStore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				8477A07C2AE6389A00C67000 /* QABuildReportView.swift in Sources */,
 				8448E1A12AEA23E000337070 /* CredentialsListFeatureMock.swift in Sources */,
 				84EDC3DE2AE154AE00463365 /* AddTaskNumberView.swift in Sources */,
+				841D8F402AF0CAC700DED04C /* AppStore.swift in Sources */,
 				8448E1A82AEA3DBE00337070 /* TextFieldClearButtonModifier.swift in Sources */,
 				84EDC3E32AE156EE00463365 /* CopyTaskNumberView.swift in Sources */,
 				8448E19F2AEA23E000337070 /* CredentialsListViewMock.swift in Sources */,

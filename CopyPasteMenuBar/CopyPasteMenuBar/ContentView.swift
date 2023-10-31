@@ -10,9 +10,7 @@ import ComposableArchitecture
 
 struct ContentView: View {
 
-    var taskListStore: StoreOf<TaskNumberListFeature>
-    var qaBuildReportStore: StoreOf<QABuildReportFeature>
-    var credentialsListStore: StoreOf<CredentialsListFeature>
+    let appStore: AppStore
 
     var body: some View {
         VStack {
@@ -21,9 +19,9 @@ struct ContentView: View {
             }
             ScrollView(.vertical, showsIndicators: true) {
                 VStack {
-                    TaskNumberListView(store: taskListStore)
-                    QABuildReportView(store: qaBuildReportStore)
-                    CredentialsListView(store: credentialsListStore)
+                    TaskNumberListView(store: appStore.taskListStore)
+                    QABuildReportView(store: appStore.qaBuildReportStore)
+                    CredentialsListView(store: appStore.credentialsListStore)
                 }
             }
         }
@@ -32,11 +30,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
-        TaskNumberListFeature()._printChanges()
-    }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
-        QABuildReportFeature()._printChanges()
-    }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
-        CredentialsListFeature()._printChanges()
-    })
+    ContentView(appStore: .mock)
 }
