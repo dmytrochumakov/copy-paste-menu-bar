@@ -25,13 +25,19 @@ struct QABuildReportView: View {
                     Text("Enter Azure link")
                     let azureLink = viewStore.binding(get: \.azureLink, send: { .azureLinkChanged($0) })
                     TextField("", text: azureLink)
-                        .modifier(TextFieldClearButtonModifier(text: azureLink))
+                        .modifier(TextFieldClearButtonModifier(text: azureLink, 
+                                                               clearButtonTapped: {
+                            viewStore.send(.clearAzureLink)
+                        }))
                 }
                 Group {
                     Text("Enter Firebae link")
                     let firebaeLink = viewStore.binding(get: \.firebaeLink, send: { .firebaeLinkChanged($0) })
                     TextField("", text: firebaeLink)
-                        .modifier(TextFieldClearButtonModifier(text:firebaeLink))
+                        .modifier(TextFieldClearButtonModifier(text: firebaeLink,
+                                                               clearButtonTapped: {
+                            viewStore.send(.clearFirebaeLink)
+                        }))
                 }
                 Button("Copy") {
                     viewStore.send(.copy)

@@ -44,6 +44,12 @@ struct CredentialsListFeature: Reducer {
                 }
                 state.credentials = (try? JSONDecoder().decode([Credential].self, from: data)) ?? []
                 return .none
+            case .clearNameField:
+                state.nameField = ""
+                return .none
+            case .clearDataField:
+                state.dataField = ""
+                return .none
             }
         }
     }
@@ -60,6 +66,8 @@ struct CredentialsListFeature: Reducer {
         case add
         case copy(_ credential: Credential)
         case load
+        case clearNameField
+        case clearDataField
     }
 
 }

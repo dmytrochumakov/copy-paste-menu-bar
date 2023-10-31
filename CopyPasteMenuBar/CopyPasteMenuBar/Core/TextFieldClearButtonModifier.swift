@@ -10,13 +10,14 @@ import SwiftUI
 struct TextFieldClearButtonModifier: ViewModifier {
 
     @Binding var text: String
+    var clearButtonTapped: () -> Void
 
     func body(content: Content) -> some View {
         ZStack(alignment: .trailing) {
             content
             if !text.isEmpty {
                 Button(action: {
-                    self.text = ""
+                    clearButtonTapped()
                 }) {
                     Image(systemName: "delete.left")
                         .foregroundColor(Color.gray)

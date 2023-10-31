@@ -37,13 +37,18 @@ struct CredentialsListView: View {
                         Text("Enter credential name")
                         let nameField = viewStore.binding(get: \.nameField, send: { .nameFieldChanged($0) })
                         TextField("", text: nameField)
-                            .modifier(TextFieldClearButtonModifier(text: nameField))
+                            .modifier(TextFieldClearButtonModifier(text: nameField,
+                                                                   clearButtonTapped: {
+                                viewStore.send(.clearNameField)
+                            }))
                     }
                     Group {
                         Text("Enter credential data")
                         let dataField = viewStore.binding(get: \.dataField, send: { .dataFieldChanged($0) })
                         TextField("", text: dataField)
-                            .modifier(TextFieldClearButtonModifier(text: dataField))
+                            .modifier(TextFieldClearButtonModifier(text: dataField, clearButtonTapped: {
+                                viewStore.send(.clearDataField)
+                            }))
                     }
                     Button("Add new credential") {
                         viewStore.send(.add)

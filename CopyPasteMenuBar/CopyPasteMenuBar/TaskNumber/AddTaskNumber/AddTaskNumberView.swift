@@ -10,15 +10,17 @@ import ComposableArchitecture
 
 struct AddTaskNumberView: View {
 
-    @State private var taskNumber: String = ""
-    var addTaskButtonTapped: (String) -> Void
+    @Binding var taskNumber: String
+    var addTaskButtonTapped: () -> Void
+    var clearButtonTapped: () -> Void
 
     var body: some View {
         VStack {
             TextField("task number", text: $taskNumber)
-                .modifier(TextFieldClearButtonModifier(text: $taskNumber))
+                .modifier(TextFieldClearButtonModifier(text: $taskNumber, 
+                                                       clearButtonTapped: clearButtonTapped))
             Button("add task number") {
-                addTaskButtonTapped(taskNumber)
+                addTaskButtonTapped()
             }
         }
         .padding()
@@ -27,5 +29,7 @@ struct AddTaskNumberView: View {
 }
 
 #Preview {
-    AddTaskNumberView(addTaskButtonTapped: { _ in })
+    AddTaskNumberView(taskNumber: .constant(""),
+                      addTaskButtonTapped: {}, 
+                      clearButtonTapped: {})
 }

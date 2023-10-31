@@ -13,29 +13,44 @@ struct TaskNumberListView: View {
     var store: StoreOf<TaskNumberListFeature>
 
     var body: some View {
-        WithViewStore(store, observe: { $0.taskNumbers }) { viewStore in
-            ForEach(viewStore.state, id: \.self) { taskNumber in
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            ForEach(viewStore.taskNumbers.indices, id: \.self) { index in
                 HStack {
-                    Text(String(taskNumber.number))
+                    taskNumberView(viewStore.taskNumbers[index].number)
                     Spacer()
                     CopyTaskNumberView {
-                        viewStore.send(.copyTaskNumber(taskNumber.number))
+                        viewStore.send(.copyTaskNumber(index))
                     }
-                    Button(action: {
-                        viewStore.send(.delete(taskNumber))
-                    }, label: {
-                        Image(systemName: "trash")
-                    })
+                    deleteTaskNumberButton(at: index)
                 }
                 .padding()
             }
-            AddTaskNumberView { taskNumber in
-                viewStore.send(.addTaskNumber(taskNumber))
+            AddTaskNumberView(taskNumber: viewStore.binding(get: \.taskNumber, send: { .taskNumberChanged($0) })) {
+                viewStore.send(.addTaskNumber)
+            } clearButtonTapped: {
+                viewStore.send(.clearTaskNumberField)
             }
         }
         .onAppear {
             store.send(.load)
         }
+    }
+
+}
+
+// MARK: - Views
+private extension TaskNumberListView {
+
+    func taskNumberView(_ number: String) -> some View {
+        Text(number)
+    }
+
+    func deleteTaskNumberButton(at index: Int) -> some View {
+        Button(action: {
+            store.send(.delete(index))
+        }, label: {
+            Image(systemName: "trash")
+        })
     }
 
 }

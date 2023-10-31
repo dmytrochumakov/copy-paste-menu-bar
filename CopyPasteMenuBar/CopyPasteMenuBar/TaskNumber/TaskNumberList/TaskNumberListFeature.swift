@@ -20,13 +20,13 @@ struct TaskNumberListFeature: Reducer {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .addTaskNumber(let number):
-                state.taskNumbers.append(.init(number: "#\(number) - "))
+            case .addTaskNumber:
+                state.taskNumbers.append(.init(number: "#\(state.taskNumber) - "))
                 let encoded = try? JSONEncoder().encode(state.taskNumbers)
                 userDefaults.set(encoded, forKey: taskKey)
                 return .none
-            case .copyTaskNumber(let number):
-                copyToPasteboard(number)
+            case .copyTaskNumber(let index):
+                copyToPasteboard(state.taskNumbers[index].number)
                 return .none
             case .load:
                 guard
@@ -36,10 +36,16 @@ struct TaskNumberListFeature: Reducer {
                 }
                 state.taskNumbers = (try? JSONDecoder().decode([TaskNumber].self, from: data)) ?? []
                 return .none
-            case .delete(let taskNumber):
-                state.taskNumbers.removeAll(where: { $0 == taskNumber })
+            case .delete(let index):
+                state.taskNumbers.remove(at: index)
                 let encoded = try? JSONEncoder().encode(state.taskNumbers)
                 userDefaults.set(encoded, forKey: taskKey)
+                return .none
+            case .clearTaskNumberField:
+                state.taskNumber = ""
+                return .none
+            case .taskNumberChanged(let newValue):
+                state.taskNumber = newValue
                 return .none
             }
         }
@@ -47,13 +53,16 @@ struct TaskNumberListFeature: Reducer {
 
     struct State: Equatable {
         var taskNumbers: [TaskNumber]
+        var taskNumber: String = ""
     }
 
     enum Action: Equatable {
-        case addTaskNumber(_ number: String)
-        case copyTaskNumber(_ number: String)
+        case addTaskNumber
+        case copyTaskNumber(_ index: Int)
         case load
-        case delete(_ taskNumber: TaskNumber)
+        case delete(_ index: Int)
+        case clearTaskNumberField
+        case taskNumberChanged(_ newValue: String)
     }
 
 }
