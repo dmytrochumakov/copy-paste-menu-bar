@@ -27,6 +27,7 @@ struct TaskNumberListView: View {
             }
             AddTaskNumberView(taskNumber: viewStore.binding(get: \.taskNumber, send: { .taskNumberChanged($0) })) {
                 viewStore.send(.addTaskNumber)
+                viewStore.send(.clearTaskNumberField)
             } clearButtonTapped: {
                 viewStore.send(.clearTaskNumberField)
             }

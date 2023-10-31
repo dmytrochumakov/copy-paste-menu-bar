@@ -50,6 +50,10 @@ struct CredentialsListFeature: Reducer {
             case .clearDataField:
                 state.dataField = ""
                 return .none
+            case .clearFields:
+                state.nameField = ""
+                state.dataField = ""
+                return .none
             }
         }
     }
@@ -68,6 +72,7 @@ struct CredentialsListFeature: Reducer {
         case load
         case clearNameField
         case clearDataField
+        case clearFields
     }
 
 }

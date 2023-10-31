@@ -35,6 +35,10 @@ struct QABuildReportFeature: Reducer {
             case .clearFirebaeLink:
                 state.firebaeLink = ""
                 return .none
+            case .clearLinks:
+                state.azureLink = ""
+                state.firebaeLink = ""
+                return .none
             }
         }
     }
@@ -54,6 +58,7 @@ struct QABuildReportFeature: Reducer {
         case simpleToastIsPresentedChanged(_ newValue: Bool)
         case clearAzureLink
         case clearFirebaeLink
+        case clearLinks
     }
 
     private func createQABuildReport(_ enviroment: QABuildReportEnviroment,

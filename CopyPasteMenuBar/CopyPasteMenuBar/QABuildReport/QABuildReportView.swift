@@ -41,6 +41,7 @@ struct QABuildReportView: View {
                 }
                 Button("Copy") {
                     viewStore.send(.copy)
+                    viewStore.send(.clearLinks)
                 }
             }
             .padding()

@@ -52,6 +52,7 @@ struct CredentialsListView: View {
                     }
                     Button("Add new credential") {
                         viewStore.send(.add)
+                        viewStore.send(.clearFields)
                     }
                 }
             }
