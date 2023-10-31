@@ -14,11 +14,14 @@ struct AddTaskNumberView: View {
     var addTaskButtonTapped: (String) -> Void
 
     var body: some View {
-        TextField("task number", text: $taskNumber)
-            .modifier(TextFieldClearButtonModifier(text: $taskNumber))
-        Button("add task number") {
-            addTaskButtonTapped(taskNumber)
+        VStack {
+            TextField("task number", text: $taskNumber)
+                .modifier(TextFieldClearButtonModifier(text: $taskNumber))
+            Button("add task number") {
+                addTaskButtonTapped(taskNumber)
+            }
         }
+        .padding()
     }
 
 }
