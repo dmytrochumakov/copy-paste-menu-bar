@@ -20,6 +20,7 @@ struct ContentView: View {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack {
                     TaskNumberListView(store: appStore.taskListStore)
+                    GitBranchNameView(store: appStore.gitBranchNameStore)
                     QABuildReportView(store: appStore.qaBuildReportStore)
                     CredentialsListView(store: appStore.credentialsListStore)
                 }
