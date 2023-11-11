@@ -22,16 +22,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
         popover = NSPopover()
         popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: ContentView(appStore: .init()))
+        popover.contentViewController = NSHostingController(rootView: ContentView(appStore: .init(closePopover: { [unowned self] in
+            closePopover()
+        })))
     }
 
     @objc private func togglePopover() {
         guard let statusButton = statusItem.button else { return }
         if popover.isShown {
-            popover.performClose(nil)
+            closePopover()
         } else {
             popover.show(relativeTo: statusButton.bounds, of: statusButton, preferredEdge: .minY)
         }
+    }
+
+    private func closePopover() {
+        popover.performClose(nil)
     }
 
 }

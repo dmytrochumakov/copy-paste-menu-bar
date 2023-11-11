@@ -15,7 +15,7 @@ struct CopyPasteMenuBarApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(appStore: .init())
+            ContentView(appStore: .init(closePopover: {}))
         }
     }
 

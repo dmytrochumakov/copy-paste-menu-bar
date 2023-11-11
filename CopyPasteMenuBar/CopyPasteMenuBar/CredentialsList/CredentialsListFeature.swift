@@ -15,6 +15,8 @@ struct Credential: Hashable, Codable {
 
 struct CredentialsListFeature: Reducer {
 
+    let closePopover: () -> Void
+
     private let userDefaults: UserDefaults = .standard
     private let credentialKey = "credentialKey"
 
@@ -35,6 +37,7 @@ struct CredentialsListFeature: Reducer {
                 return .none
             case .copy(let credential):
                 copyToPasteboard(credential.data)
+                closePopover()
                 return .none
             case .load:
                 guard
@@ -53,6 +56,9 @@ struct CredentialsListFeature: Reducer {
             case .clearFields:
                 state.nameField = ""
                 state.dataField = ""
+                return .none
+            case .openURL:
+                closePopover()
                 return .none
             }
         }
@@ -73,6 +79,7 @@ struct CredentialsListFeature: Reducer {
         case clearNameField
         case clearDataField
         case clearFields
+        case openURL
     }
 
 }

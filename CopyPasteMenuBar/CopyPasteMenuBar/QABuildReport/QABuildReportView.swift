@@ -52,6 +52,6 @@ struct QABuildReportView: View {
 
 #Preview {
     QABuildReportView(store: Store(initialState: QABuildReportFeature.State()) {
-        QABuildReportFeature()._printChanges()
+        QABuildReportFeature(closePopover: {})._printChanges()
     })
 }

@@ -9,6 +9,8 @@ import ComposableArchitecture
 
 struct QABuildReportFeature: Reducer {
 
+    let closePopover: () -> Void
+
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -25,6 +27,7 @@ struct QABuildReportFeature: Reducer {
                 copyToPasteboard(createQABuildReport(state.enviroment,
                                                      cleanUp(state.firebaeLink),
                                                      cleanUp(state.azureLink)))
+                closePopover() 
                 return .none
             case .simpleToastIsPresentedChanged(let newValue):
                 state.simpleToastIsPresented = newValue

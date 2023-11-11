@@ -10,6 +10,8 @@ import Foundation
 
 struct GitBranchNameFeature: Reducer {
 
+    let closePopover: () -> Void
+
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -24,6 +26,7 @@ struct GitBranchNameFeature: Reducer {
                 return .none
             case .copy:
                 copyToPasteboard(buildResult(state))
+                closePopover()
                 return .none
             case .resetState:
                 state = State()

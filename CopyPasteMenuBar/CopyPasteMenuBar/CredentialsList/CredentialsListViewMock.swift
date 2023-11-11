@@ -11,7 +11,7 @@ extension CredentialsListView {
 
     static var mock: Self {
         .init(store: .init(initialState: .mock) {
-            CredentialsListFeature()._printChanges()
+            CredentialsListFeature(closePopover: {})._printChanges()
         })
     }
 

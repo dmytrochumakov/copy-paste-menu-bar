@@ -17,6 +17,8 @@ struct TaskNumberListFeature: Reducer {
     private let userDefaults: UserDefaults = .standard
     private let taskKey = "userDefaultsTaskKey"
 
+    let closePopover: () -> Void
+
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -27,6 +29,7 @@ struct TaskNumberListFeature: Reducer {
                 return .none
             case .copyTaskNumber(let index):
                 copyToPasteboard(state.taskNumbers[index].number)
+                closePopover()
                 return .none
             case .load:
                 guard

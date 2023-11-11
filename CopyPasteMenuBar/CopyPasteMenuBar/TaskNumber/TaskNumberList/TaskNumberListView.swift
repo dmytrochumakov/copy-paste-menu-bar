@@ -58,6 +58,6 @@ private extension TaskNumberListView {
 
 #Preview {
     TaskNumberListView(store: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
-        TaskNumberListFeature()._printChanges()
+        TaskNumberListFeature(closePopover: {})._printChanges()
     })
 }

@@ -9,35 +9,40 @@ import ComposableArchitecture
 
 struct AppStore {
 
+    let closePopover: () -> Void
+
     let taskListStore: StoreOf<TaskNumberListFeature>
     let gitBranchNameStore: StoreOf<GitBranchNameFeature>
     let qaBuildReportStore: StoreOf<QABuildReportFeature>
     let credentialsListStore: StoreOf<CredentialsListFeature>
 
     init(
+        closePopover: @escaping () -> Void,
         taskListStore: StoreOf<TaskNumberListFeature>,
         gitBranchNameStore: StoreOf<GitBranchNameFeature>,
         qaBuildReportStore: StoreOf<QABuildReportFeature>,
         credentialsListStore: StoreOf<CredentialsListFeature>
     ) {
+        self.closePopover = closePopover
         self.taskListStore = taskListStore
         self.gitBranchNameStore = gitBranchNameStore
         self.qaBuildReportStore = qaBuildReportStore
         self.credentialsListStore = credentialsListStore
     }
 
-    init() {
+    init(closePopover: @escaping () -> Void) {
+        self.closePopover = closePopover
         self.taskListStore = Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
-            TaskNumberListFeature()._printChanges()
+            TaskNumberListFeature(closePopover: closePopover)._printChanges()
         }
         self.gitBranchNameStore = Store(initialState: GitBranchNameFeature.State()) {
-            GitBranchNameFeature()._printChanges()
+            GitBranchNameFeature(closePopover: closePopover)._printChanges()
         }
         self.qaBuildReportStore = Store(initialState: QABuildReportFeature.State()) {
-            QABuildReportFeature()._printChanges()
+            QABuildReportFeature(closePopover: closePopover)._printChanges()
         }
         self.credentialsListStore = Store(initialState: CredentialsListFeature.State.init(credentials: [])) {
-            CredentialsListFeature()._printChanges()
+            CredentialsListFeature(closePopover: closePopover)._printChanges()
         }
     }
 
@@ -46,14 +51,16 @@ struct AppStore {
 extension AppStore {
 
     static var mock: Self {
-        .init(taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
-            TaskNumberListFeature()._printChanges()
+        let closePopover: () -> Void = {}
+        return .init(closePopover: closePopover,
+                     taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
+            TaskNumberListFeature(closePopover: closePopover)._printChanges()
         }, gitBranchNameStore: Store(initialState: GitBranchNameFeature.State.mock) {
-            GitBranchNameFeature()._printChanges()
+            GitBranchNameFeature(closePopover: closePopover)._printChanges()
         }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
-            QABuildReportFeature()._printChanges()
+            QABuildReportFeature(closePopover: closePopover)._printChanges()
         }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
-            CredentialsListFeature()._printChanges()
+            CredentialsListFeature(closePopover: closePopover)._printChanges()
         })
     }
 

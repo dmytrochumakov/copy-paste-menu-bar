@@ -20,8 +20,12 @@ struct CredentialsListView: View {
                         Text(credential.name)
                         HStack {
                             if credential.data.contains("https") {
-                                Link(destination: URL(string: credential.data)!, label: {                                    
+                                Link(destination: URL(string: credential.data)!,
+                                     label: {
                                     Text(credential.data)
+                                }).environment(\.openURL, OpenURLAction { url in
+                                    viewStore.send(.openURL)
+                                    return .systemAction
                                 })
                             } else {
                                 Text(credential.data)
