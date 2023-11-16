@@ -13,7 +13,8 @@ struct Credential: Hashable, Codable {
     let data: String
 }
 
-struct CredentialsListFeature: Reducer {
+@Reducer
+struct CredentialsListFeature {
 
     let closePopover: () -> Void
 

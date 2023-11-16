@@ -12,7 +12,8 @@ struct TaskNumber: Equatable, Codable, Hashable {
     let number: String
 }
 
-struct TaskNumberListFeature: Reducer {
+@Reducer
+struct TaskNumberListFeature {
 
     private let userDefaults: UserDefaults = .standard
     private let taskKey = "userDefaultsTaskKey"

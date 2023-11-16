@@ -8,7 +8,8 @@
 import ComposableArchitecture
 import Foundation
 
-struct GitBranchNameFeature: Reducer {
+@Reducer
+struct GitBranchNameFeature {
 
     let closePopover: () -> Void
 

@@ -7,7 +7,8 @@
 
 import ComposableArchitecture
 
-struct QABuildReportFeature: Reducer {
+@Reducer
+struct QABuildReportFeature {
 
     let closePopover: () -> Void
 
