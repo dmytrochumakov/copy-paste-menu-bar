@@ -13,20 +13,17 @@ struct AppStore {
 
     let taskListStore: StoreOf<TaskNumberListFeature>
     let gitBranchNameStore: StoreOf<GitBranchNameFeature>
-    let qaBuildReportStore: StoreOf<QABuildReportFeature>
     let credentialsListStore: StoreOf<CredentialsListFeature>
 
     init(
         closePopover: @escaping () -> Void,
         taskListStore: StoreOf<TaskNumberListFeature>,
         gitBranchNameStore: StoreOf<GitBranchNameFeature>,
-        qaBuildReportStore: StoreOf<QABuildReportFeature>,
         credentialsListStore: StoreOf<CredentialsListFeature>
     ) {
         self.closePopover = closePopover
         self.taskListStore = taskListStore
         self.gitBranchNameStore = gitBranchNameStore
-        self.qaBuildReportStore = qaBuildReportStore
         self.credentialsListStore = credentialsListStore
     }
 
@@ -37,10 +34,7 @@ struct AppStore {
         }
         self.gitBranchNameStore = Store(initialState: GitBranchNameFeature.State()) {
             GitBranchNameFeature(closePopover: closePopover)._printChanges()
-        }
-        self.qaBuildReportStore = Store(initialState: QABuildReportFeature.State()) {
-            QABuildReportFeature(closePopover: closePopover)._printChanges()
-        }
+        }      
         self.credentialsListStore = Store(initialState: CredentialsListFeature.State.init(credentials: [])) {
             CredentialsListFeature(closePopover: closePopover)._printChanges()
         }
@@ -56,9 +50,7 @@ extension AppStore {
                      taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
             TaskNumberListFeature(closePopover: closePopover)._printChanges()
         }, gitBranchNameStore: Store(initialState: GitBranchNameFeature.State.mock) {
-            GitBranchNameFeature(closePopover: closePopover)._printChanges()
-        }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
-            QABuildReportFeature(closePopover: closePopover)._printChanges()
+            GitBranchNameFeature(closePopover: closePopover)._printChanges()        
         }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
             CredentialsListFeature(closePopover: closePopover)._printChanges()
         })
