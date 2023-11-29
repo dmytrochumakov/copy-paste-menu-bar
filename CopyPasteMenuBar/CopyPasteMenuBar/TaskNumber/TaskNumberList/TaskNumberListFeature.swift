@@ -32,6 +32,13 @@ struct TaskNumberListFeature {
                 copyToPasteboard(state.taskNumbers[index].number)
                 closePopover()
                 return .none
+            case let .copyNumber(index):
+                let replacedSymbol0 = state.taskNumbers[index].number.replacingOccurrences(of: "#", with: "")
+                let replacedSymbol1 = replacedSymbol0.replacingOccurrences(of: "-", with: "")
+                let result = replacedSymbol1.replacingOccurrences(of: " ", with: "")
+                copyToPasteboard(result)
+                closePopover()
+                return .none
             case .load:
                 guard
                     let data = userDefaults.object(forKey: taskKey) as? Data
@@ -63,6 +70,7 @@ struct TaskNumberListFeature {
     enum Action: Equatable {
         case addTaskNumber
         case copyTaskNumber(_ index: Int)
+        case copyNumber(_ index: Int)
         case load
         case delete(_ index: Int)
         case clearTaskNumberField

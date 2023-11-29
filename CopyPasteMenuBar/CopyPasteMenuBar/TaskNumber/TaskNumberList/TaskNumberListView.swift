@@ -18,8 +18,13 @@ struct TaskNumberListView: View {
                 HStack {
                     taskNumberView(viewStore.taskNumbers[index].number)
                     Spacer()
-                    CopyTaskNumberView {
-                        viewStore.send(.copyTaskNumber(index))
+                    HStack {
+                        Button("Copy number") {
+                            viewStore.send(.copyNumber(index))
+                        }
+                        CopyTaskNumberView {
+                            viewStore.send(.copyTaskNumber(index))
+                        }
                     }
                     deleteTaskNumberButton(at: index)
                 }
