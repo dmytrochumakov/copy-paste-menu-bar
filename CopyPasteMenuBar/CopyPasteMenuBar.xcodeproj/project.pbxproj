@@ -13,6 +13,10 @@
 		8448E1A12AEA23E000337070 /* CredentialsListFeatureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19E2AEA23E000337070 /* CredentialsListFeatureMock.swift */; };
 		8448E1A62AEA291E00337070 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E1A52AEA291E00337070 /* Helpers.swift */; };
 		8448E1A82AEA3DBE00337070 /* TextFieldClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E1A72AEA3DBE00337070 /* TextFieldClearButtonModifier.swift */; };
+		8449A37F2B4C22AE0026C9EB /* PRViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449A37B2B4C22AE0026C9EB /* PRViewMock.swift */; };
+		8449A3802B4C22AE0026C9EB /* PRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449A37C2B4C22AE0026C9EB /* PRView.swift */; };
+		8449A3812B4C22AE0026C9EB /* PRFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449A37D2B4C22AE0026C9EB /* PRFeature.swift */; };
+		8449A3822B4C22AE0026C9EB /* PRFeatureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449A37E2B4C22AE0026C9EB /* PRFeatureMock.swift */; };
 		8463B2972AD80D7000506657 /* CopyPasteMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B2962AD80D7000506657 /* CopyPasteMenuBarApp.swift */; };
 		8463B2992AD80D7000506657 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B2982AD80D7000506657 /* ContentView.swift */; };
 		8463B29D2AD80D7100506657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8463B29C2AD80D7100506657 /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 		8448E19E2AEA23E000337070 /* CredentialsListFeatureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListFeatureMock.swift; sourceTree = "<group>"; };
 		8448E1A52AEA291E00337070 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8448E1A72AEA3DBE00337070 /* TextFieldClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButtonModifier.swift; sourceTree = "<group>"; };
+		8449A37B2B4C22AE0026C9EB /* PRViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRViewMock.swift; sourceTree = "<group>"; };
+		8449A37C2B4C22AE0026C9EB /* PRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRView.swift; sourceTree = "<group>"; };
+		8449A37D2B4C22AE0026C9EB /* PRFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRFeature.swift; sourceTree = "<group>"; };
+		8449A37E2B4C22AE0026C9EB /* PRFeatureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRFeatureMock.swift; sourceTree = "<group>"; };
 		8463B2932AD80D7000506657 /* CopyPasteMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPasteMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463B2962AD80D7000506657 /* CopyPasteMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPasteMenuBarApp.swift; sourceTree = "<group>"; };
 		8463B2982AD80D7000506657 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +87,17 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		8449A37A2B4C229C0026C9EB /* PR */ = {
+			isa = PBXGroup;
+			children = (
+				8449A37B2B4C22AE0026C9EB /* PRViewMock.swift */,
+				8449A37C2B4C22AE0026C9EB /* PRView.swift */,
+				8449A37D2B4C22AE0026C9EB /* PRFeature.swift */,
+				8449A37E2B4C22AE0026C9EB /* PRFeatureMock.swift */,
+			);
+			path = PR;
+			sourceTree = "<group>";
+		};
 		8463B28A2AD80D7000506657 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +117,7 @@
 		8463B2952AD80D7000506657 /* CopyPasteMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				8449A37A2B4C229C0026C9EB /* PR */,
 				8448E1A42AEA291000337070 /* Core */,
 				84C7731B2AF21C5A0034C498 /* GitBranchName */,
 				84C10A072AE77F6300318D3D /* CredentialsList */,
@@ -254,10 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8449A3822B4C22AE0026C9EB /* PRFeatureMock.swift in Sources */,
 				84C10A092AE77F8B00318D3D /* CredentialsListView.swift in Sources */,
 				84EDC3D62AE0F09C00463365 /* AppDelegate.swift in Sources */,
+				8449A37F2B4C22AE0026C9EB /* PRViewMock.swift in Sources */,
 				8448E1A02AEA23E000337070 /* CredentialsListFeature.swift in Sources */,
 				84C773212AF21C9C0034C498 /* GitBranchNameView.swift in Sources */,
+				8449A3802B4C22AE0026C9EB /* PRView.swift in Sources */,
 				84C773222AF21C9C0034C498 /* GitBranchNameFeature.swift in Sources */,
 				8463B2992AD80D7000506657 /* ContentView.swift in Sources */,
 				84C773252AF21D5B0034C498 /* GitBranchType.swift in Sources */,
@@ -270,6 +293,7 @@
 				84EDC3E32AE156EE00463365 /* CopyTaskNumberView.swift in Sources */,
 				8448E19F2AEA23E000337070 /* CredentialsListViewMock.swift in Sources */,
 				84C773202AF21C9C0034C498 /* GitBranchNameViewMock.swift in Sources */,
+				8449A3812B4C22AE0026C9EB /* PRFeature.swift in Sources */,
 				8463B2972AD80D7000506657 /* CopyPasteMenuBarApp.swift in Sources */,
 				84EDC3D82AE0FD0400463365 /* TaskNumberListFeature.swift in Sources */,
 				8448E1A62AEA291E00337070 /* Helpers.swift in Sources */,

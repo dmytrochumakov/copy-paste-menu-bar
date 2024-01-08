@@ -23,6 +23,7 @@ struct ContentView: View {
                     VStack {
                         TaskNumberListView(store: appStore.taskListStore)
                             .id(scrollTopID)
+                        PRView(store: appStore.prStore)
                         GitBranchNameView(store: appStore.gitBranchNameStore)                        
                         CredentialsListView(store: appStore.credentialsListStore)
                     }
