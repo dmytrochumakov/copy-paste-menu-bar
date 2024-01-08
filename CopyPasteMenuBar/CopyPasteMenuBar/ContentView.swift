@@ -24,6 +24,7 @@ struct ContentView: View {
                         TaskNumberListView(store: appStore.taskListStore)
                             .id(scrollTopID)
                         PRView(store: appStore.prStore)
+                        SwitchToAnotherTaskView(store: appStore.switchToAnotherTaskStore)
                         GitBranchNameView(store: appStore.gitBranchNameStore)                        
                         CredentialsListView(store: appStore.credentialsListStore)
                     }

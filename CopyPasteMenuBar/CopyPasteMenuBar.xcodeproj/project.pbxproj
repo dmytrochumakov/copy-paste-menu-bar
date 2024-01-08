@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840EA86F2B4C41C100958B35 /* SwitchToAnotherTaskViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EA86B2B4C41C100958B35 /* SwitchToAnotherTaskViewMock.swift */; };
+		840EA8702B4C41C100958B35 /* SwitchToAnotherTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EA86C2B4C41C100958B35 /* SwitchToAnotherTaskView.swift */; };
+		840EA8712B4C41C100958B35 /* SwitchToAnotherTaskFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EA86D2B4C41C100958B35 /* SwitchToAnotherTaskFeature.swift */; };
+		840EA8722B4C41C100958B35 /* SwitchToAnotherTaskFeatureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EA86E2B4C41C100958B35 /* SwitchToAnotherTaskFeatureMock.swift */; };
 		841D8F402AF0CAC700DED04C /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D8F3F2AF0CAC700DED04C /* AppStore.swift */; };
 		8448E19F2AEA23E000337070 /* CredentialsListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19C2AEA23E000337070 /* CredentialsListViewMock.swift */; };
 		8448E1A02AEA23E000337070 /* CredentialsListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448E19D2AEA23E000337070 /* CredentialsListFeature.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840EA86B2B4C41C100958B35 /* SwitchToAnotherTaskViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchToAnotherTaskViewMock.swift; sourceTree = "<group>"; };
+		840EA86C2B4C41C100958B35 /* SwitchToAnotherTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchToAnotherTaskView.swift; sourceTree = "<group>"; };
+		840EA86D2B4C41C100958B35 /* SwitchToAnotherTaskFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchToAnotherTaskFeature.swift; sourceTree = "<group>"; };
+		840EA86E2B4C41C100958B35 /* SwitchToAnotherTaskFeatureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchToAnotherTaskFeatureMock.swift; sourceTree = "<group>"; };
 		841D8F3F2AF0CAC700DED04C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		8448E19C2AEA23E000337070 /* CredentialsListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListViewMock.swift; sourceTree = "<group>"; };
 		8448E19D2AEA23E000337070 /* CredentialsListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListFeature.swift; sourceTree = "<group>"; };
@@ -77,6 +85,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840EA8732B4C41C600958B35 /* SwitchToAnotherTask */ = {
+			isa = PBXGroup;
+			children = (
+				840EA86B2B4C41C100958B35 /* SwitchToAnotherTaskViewMock.swift */,
+				840EA86C2B4C41C100958B35 /* SwitchToAnotherTaskView.swift */,
+				840EA86D2B4C41C100958B35 /* SwitchToAnotherTaskFeature.swift */,
+				840EA86E2B4C41C100958B35 /* SwitchToAnotherTaskFeatureMock.swift */,
+			);
+			path = SwitchToAnotherTask;
+			sourceTree = "<group>";
+		};
 		8448E1A42AEA291000337070 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +136,7 @@
 		8463B2952AD80D7000506657 /* CopyPasteMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				840EA8732B4C41C600958B35 /* SwitchToAnotherTask */,
 				8449A37A2B4C229C0026C9EB /* PR */,
 				8448E1A42AEA291000337070 /* Core */,
 				84C7731B2AF21C5A0034C498 /* GitBranchName */,
@@ -275,12 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8449A3822B4C22AE0026C9EB /* PRFeatureMock.swift in Sources */,
+				840EA8722B4C41C100958B35 /* SwitchToAnotherTaskFeatureMock.swift in Sources */,
 				84C10A092AE77F8B00318D3D /* CredentialsListView.swift in Sources */,
 				84EDC3D62AE0F09C00463365 /* AppDelegate.swift in Sources */,
 				8449A37F2B4C22AE0026C9EB /* PRViewMock.swift in Sources */,
 				8448E1A02AEA23E000337070 /* CredentialsListFeature.swift in Sources */,
 				84C773212AF21C9C0034C498 /* GitBranchNameView.swift in Sources */,
 				8449A3802B4C22AE0026C9EB /* PRView.swift in Sources */,
+				840EA8702B4C41C100958B35 /* SwitchToAnotherTaskView.swift in Sources */,
 				84C773222AF21C9C0034C498 /* GitBranchNameFeature.swift in Sources */,
 				8463B2992AD80D7000506657 /* ContentView.swift in Sources */,
 				84C773252AF21D5B0034C498 /* GitBranchType.swift in Sources */,
@@ -288,6 +310,8 @@
 				8448E1A12AEA23E000337070 /* CredentialsListFeatureMock.swift in Sources */,
 				84EDC3DE2AE154AE00463365 /* AddTaskNumberView.swift in Sources */,
 				841D8F402AF0CAC700DED04C /* AppStore.swift in Sources */,
+				840EA86F2B4C41C100958B35 /* SwitchToAnotherTaskViewMock.swift in Sources */,
+				840EA8712B4C41C100958B35 /* SwitchToAnotherTaskFeature.swift in Sources */,
 				84C773232AF21C9C0034C498 /* GitBranchNameFeatureMock.swift in Sources */,
 				8448E1A82AEA3DBE00337070 /* TextFieldClearButtonModifier.swift in Sources */,
 				84EDC3E32AE156EE00463365 /* CopyTaskNumberView.swift in Sources */,
@@ -508,7 +532,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.5.0;
+				minimumVersion = 1.5.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
