@@ -24,9 +24,7 @@ struct TaskNumberListFeature {
         Reduce { state, action in
             switch action {
             case .addTaskNumber:
-                state.taskNumbers.append(.init(number: "#\(state.taskNumber) - "))
-                let encoded = try? JSONEncoder().encode(state.taskNumbers)
-                userDefaults.set(encoded, forKey: taskKey)
+                addTaskNumber(&state)
                 return .none
             case .copyTaskNumber(let index):
                 copyToPasteboard(state.taskNumbers[index].number)
@@ -58,6 +56,9 @@ struct TaskNumberListFeature {
             case .taskNumberChanged(let newValue):
                 state.taskNumber = newValue
                 return .none
+            case .onReturnPress:
+                addTaskNumber(&state)
+                return .none
             }
         }
     }
@@ -75,6 +76,18 @@ struct TaskNumberListFeature {
         case delete(_ index: Int)
         case clearTaskNumberField
         case taskNumberChanged(_ newValue: String)
+        case onReturnPress
+    }
+
+}
+
+// MARK: - Private
+private extension TaskNumberListFeature {
+
+    func addTaskNumber(_ state: inout State) {
+        state.taskNumbers.append(.init(number: "#\(state.taskNumber) - "))
+        let encoded = try? JSONEncoder().encode(state.taskNumbers)
+        userDefaults.set(encoded, forKey: taskKey)
     }
 
 }

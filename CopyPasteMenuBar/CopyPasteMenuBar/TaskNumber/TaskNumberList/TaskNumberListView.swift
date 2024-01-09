@@ -40,6 +40,10 @@ struct TaskNumberListView: View {
         .onAppear {
             store.send(.load)
         }
+        .onKeyPress(.return) {
+            store.send(.onReturnPress)
+            return .ignored
+        }
     }
 
 }
