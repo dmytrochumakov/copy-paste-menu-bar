@@ -22,6 +22,10 @@ struct SwitchToAnotherTaskView: View {
                 }
             }.padding()
         }
+        .onKeyPress(.return) {
+            store.send(.copy)
+            return .ignored
+        }
     }
 
 }
