@@ -64,6 +64,11 @@ struct CredentialsListView: View {
         .onAppear {
             store.send(.load)
         }
+        .onKeyPress(.return) {
+            store.send(.add)
+            store.send(.clearFields)
+            return .ignored
+        }
     }
 
 }
