@@ -22,6 +22,11 @@ struct GitBranchNameView: View {
             }
             .padding()
         }
+        .onKeyPress(.return) {
+            store.send(.copy)
+            store.send(.resetState)
+            return .ignored
+        }
     }
 
 }
