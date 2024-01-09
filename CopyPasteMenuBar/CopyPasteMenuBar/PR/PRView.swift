@@ -22,6 +22,10 @@ struct PRView: View {
                 }
             }.padding()
         }
+        .onKeyPress(.return) {
+            store.send(.copy)            
+            return .ignored
+        }
     }
 
 }
