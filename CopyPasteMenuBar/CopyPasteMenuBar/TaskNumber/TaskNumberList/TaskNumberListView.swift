@@ -41,7 +41,7 @@ struct TaskNumberListView: View {
             store.send(.load)
         }
         .onKeyPress(.return) {
-            store.send(.onReturnPress)
+            store.send(.addTaskNumber)
             store.send(.clearTaskNumberField)
             return .ignored
         }
