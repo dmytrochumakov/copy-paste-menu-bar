@@ -8,11 +8,9 @@
 import Foundation
 
 extension GitBranchNameView {
-
     static var mock: Self {
         .init(store: .init(initialState: .mock) {
             GitBranchNameFeature(closePopover: {})._printChanges()
         })
     }
-
 }

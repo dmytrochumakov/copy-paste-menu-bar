@@ -5,11 +5,10 @@
 //  Created Dmytro Chumakov on 01.11.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct GitBranchNameView: View {
-
     let store: StoreOf<GitBranchNameFeature>
 
     var body: some View {
@@ -28,16 +27,16 @@ struct GitBranchNameView: View {
             return .ignored
         }
     }
-
 }
 
 // MARK: - Views
-private extension GitBranchNameView {
 
+private extension GitBranchNameView {
     func gitBranchTypePickerView(_ viewStore: ViewStoreOf<GitBranchNameFeature>) -> some View {
         Picker("Pick branch type",
                selection: viewStore.binding(get: \.branchType,
-                                            send: { .branchTypeChanged($0) })) {
+                                            send: { .branchTypeChanged($0) }))
+        {
             ForEach(GitBranchType.allCases, id: \.self) {
                 Text($0.rawValue)
             }
@@ -68,7 +67,6 @@ private extension GitBranchNameView {
             Text("Copy")
         }
     }
-
 }
 
 #Preview {

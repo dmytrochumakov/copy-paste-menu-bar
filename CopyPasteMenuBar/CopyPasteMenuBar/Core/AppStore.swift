@@ -8,7 +8,6 @@
 import ComposableArchitecture
 
 struct AppStore {
-
     let closePopover: () -> Void
 
     let taskListStore: StoreOf<TaskNumberListFeature>
@@ -35,41 +34,38 @@ struct AppStore {
 
     init(closePopover: @escaping () -> Void) {
         self.closePopover = closePopover
-        self.taskListStore = Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
+        taskListStore = Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
             TaskNumberListFeature(closePopover: closePopover)._printChanges()
         }
-        self.prStore = Store(initialState: PRFeature.State(link: "")) {
+        prStore = Store(initialState: PRFeature.State(link: "")) {
             PRFeature(closePopover: closePopover)._printChanges()
         }
-        self.switchToAnotherTaskStore = Store(initialState: SwitchToAnotherTaskFeature.State(link: "")) {
+        switchToAnotherTaskStore = Store(initialState: SwitchToAnotherTaskFeature.State(link: "")) {
             SwitchToAnotherTaskFeature(closePopover: closePopover)._printChanges()
         }
-        self.gitBranchNameStore = Store(initialState: GitBranchNameFeature.State()) {
+        gitBranchNameStore = Store(initialState: GitBranchNameFeature.State()) {
             GitBranchNameFeature(closePopover: closePopover)._printChanges()
-        }      
-        self.credentialsListStore = Store(initialState: CredentialsListFeature.State.init(credentials: [])) {
+        }
+        credentialsListStore = Store(initialState: CredentialsListFeature.State(credentials: [])) {
             CredentialsListFeature(closePopover: closePopover)._printChanges()
         }
     }
-
 }
 
 extension AppStore {
-
     static var mock: Self {
         let closePopover: () -> Void = {}
         return .init(closePopover: closePopover,
                      taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
-            TaskNumberListFeature(closePopover: closePopover)._printChanges()
-        }, prStore: Store(initialState: PRFeature.State.mock) {
-            PRFeature(closePopover: closePopover)._printChanges()
-        }, switchToAnotherTaskStore: Store(initialState: SwitchToAnotherTaskFeature.State.mock) {
-            SwitchToAnotherTaskFeature(closePopover: closePopover)._printChanges()
-        }, gitBranchNameStore: Store(initialState: GitBranchNameFeature.State.mock) {
-            GitBranchNameFeature(closePopover: closePopover)._printChanges()        
-        }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
-            CredentialsListFeature(closePopover: closePopover)._printChanges()
-        })
+                         TaskNumberListFeature(closePopover: closePopover)._printChanges()
+                     }, prStore: Store(initialState: PRFeature.State.mock) {
+                         PRFeature(closePopover: closePopover)._printChanges()
+                     }, switchToAnotherTaskStore: Store(initialState: SwitchToAnotherTaskFeature.State.mock) {
+                         SwitchToAnotherTaskFeature(closePopover: closePopover)._printChanges()
+                     }, gitBranchNameStore: Store(initialState: GitBranchNameFeature.State.mock) {
+                         GitBranchNameFeature(closePopover: closePopover)._printChanges()
+                     }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
+                         CredentialsListFeature(closePopover: closePopover)._printChanges()
+                     })
     }
-
 }

@@ -9,7 +9,6 @@ import ComposableArchitecture
 
 @Reducer
 struct SwitchToAnotherTaskFeature {
-
     let closePopover: () -> Void
 
     var body: some ReducerOf<Self> {
@@ -36,14 +35,12 @@ struct SwitchToAnotherTaskFeature {
         case linkChanged(String)
         case copy
     }
-
 }
 
 // MARK: - Private
-private extension SwitchToAnotherTaskFeature {
 
+private extension SwitchToAnotherTaskFeature {
     static func text(_ link: String) -> String {
         "switched to task:\n\(link)"
     }
-
 }

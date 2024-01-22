@@ -5,11 +5,10 @@
 //  Created by Dmytro Chumakov on 12.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct ContentView: View {
-
     private let scrollTopID = "topId"
     let appStore: AppStore
 
@@ -25,7 +24,7 @@ struct ContentView: View {
                             .id(scrollTopID)
                         PRView(store: appStore.prStore)
                         SwitchToAnotherTaskView(store: appStore.switchToAnotherTaskStore)
-                        GitBranchNameView(store: appStore.gitBranchNameStore)                        
+                        GitBranchNameView(store: appStore.gitBranchNameStore)
                         CredentialsListView(store: appStore.credentialsListStore)
                     }
                 }
@@ -45,7 +44,6 @@ struct ContentView: View {
             }
         }
     }
-
 }
 
 #Preview {

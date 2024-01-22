@@ -5,11 +5,10 @@
 //  Created by Dmytro Chumakov on 24.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct CredentialsListView: View {
-
     var store: StoreOf<CredentialsListFeature>
 
     var body: some View {
@@ -22,8 +21,8 @@ struct CredentialsListView: View {
                             if credential.data.contains("https") {
                                 Link(destination: URL(string: credential.data)!,
                                      label: {
-                                    Text(credential.data)
-                                }).environment(\.openURL, OpenURLAction { url in
+                                         Text(credential.data)
+                                     }).environment(\.openURL, OpenURLAction { _ in
                                     viewStore.send(.openURL)
                                     return .systemAction
                                 })
@@ -43,8 +42,8 @@ struct CredentialsListView: View {
                         TextField("", text: nameField)
                             .modifier(TextFieldClearButtonModifier(text: nameField,
                                                                    clearButtonTapped: {
-                                viewStore.send(.clearNameField)
-                            }))
+                                                                       viewStore.send(.clearNameField)
+                                                                   }))
                     }
                     Group {
                         Text("Enter credential data")
@@ -70,7 +69,6 @@ struct CredentialsListView: View {
             return .ignored
         }
     }
-
 }
 
 #Preview {

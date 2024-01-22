@@ -5,15 +5,14 @@
 //  Created by Dmytro Chumakov on 19.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-
     private var statusItem: NSStatusItem!
     private var popover: NSPopover!
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let statusButton = statusItem.button {
             statusButton.image = NSImage(systemSymbolName: "hammer.circle",
@@ -39,5 +38,4 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func closePopover() {
         popover.performClose(nil)
     }
-
 }

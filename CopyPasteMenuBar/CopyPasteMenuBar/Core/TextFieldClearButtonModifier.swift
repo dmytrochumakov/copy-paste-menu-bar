@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TextFieldClearButtonModifier: ViewModifier {
-
     @Binding var text: String
     var clearButtonTapped: () -> Void
 
@@ -26,5 +25,4 @@ struct TextFieldClearButtonModifier: ViewModifier {
             }
         }
     }
-
 }

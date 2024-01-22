@@ -5,8 +5,8 @@
 //  Created by Dmytro Chumakov on 19.10.2023.
 //
 
-import Foundation
 import ComposableArchitecture
+import Foundation
 
 struct TaskNumber: Equatable, Codable, Hashable {
     let number: String
@@ -14,7 +14,6 @@ struct TaskNumber: Equatable, Codable, Hashable {
 
 @Reducer
 struct TaskNumberListFeature {
-
     private let userDefaults: UserDefaults = .standard
     private let taskKey = "userDefaultsTaskKey"
 
@@ -28,7 +27,7 @@ struct TaskNumberListFeature {
                 let encoded = try? JSONEncoder().encode(state.taskNumbers)
                 userDefaults.set(encoded, forKey: taskKey)
                 return .none
-            case .copyTaskNumber(let index):
+            case let .copyTaskNumber(index):
                 copyToPasteboard(state.taskNumbers[index].number)
                 closePopover()
                 return .none
@@ -47,7 +46,7 @@ struct TaskNumberListFeature {
                 }
                 state.taskNumbers = (try? JSONDecoder().decode([TaskNumber].self, from: data)) ?? []
                 return .none
-            case .delete(let index):
+            case let .delete(index):
                 state.taskNumbers.remove(at: index)
                 let encoded = try? JSONEncoder().encode(state.taskNumbers)
                 userDefaults.set(encoded, forKey: taskKey)
@@ -55,9 +54,9 @@ struct TaskNumberListFeature {
             case .clearTaskNumberField:
                 state.taskNumber = ""
                 return .none
-            case .taskNumberChanged(let newValue):
+            case let .taskNumberChanged(newValue):
                 state.taskNumber = newValue
-                return .none            
+                return .none
             }
         }
     }
@@ -76,5 +75,4 @@ struct TaskNumberListFeature {
         case clearTaskNumberField
         case taskNumberChanged(_ newValue: String)
     }
-
 }

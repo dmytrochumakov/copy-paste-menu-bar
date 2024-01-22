@@ -8,9 +8,7 @@
 import Foundation
 
 extension PRFeature.State {
-
     static var mock: Self {
         .init(link: "mock")
     }
-
 }

@@ -8,11 +8,9 @@
 import Foundation
 
 extension SwitchToAnotherTaskView {
-
     static var mock: Self {
         .init(store: .init(initialState: .mock) {
             SwitchToAnotherTaskFeature(closePopover: {})._printChanges()
         })
     }
-
 }

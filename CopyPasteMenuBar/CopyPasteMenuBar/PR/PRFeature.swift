@@ -9,7 +9,6 @@ import ComposableArchitecture
 
 @Reducer
 struct PRFeature {
-
     let closePopover: () -> Void
 
     var body: some ReducerOf<Self> {
@@ -36,14 +35,12 @@ struct PRFeature {
         case linkChanged(String)
         case copy
     }
-
 }
 
 // MARK: - Private
-private extension PRFeature {
 
+private extension PRFeature {
     static func text(_ link: String) -> String {
         "PR: \n\(link)"
     }
-
 }

@@ -5,11 +5,10 @@
 //  Created by Dmytro Chumakov on 19.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct TaskNumberListView: View {
-
     var store: StoreOf<TaskNumberListFeature>
 
     var body: some View {
@@ -46,12 +45,11 @@ struct TaskNumberListView: View {
             return .ignored
         }
     }
-
 }
 
 // MARK: - Views
-private extension TaskNumberListView {
 
+private extension TaskNumberListView {
     func taskNumberView(_ number: String) -> some View {
         Text(number)
     }
@@ -63,7 +61,6 @@ private extension TaskNumberListView {
             Image(systemName: "trash")
         })
     }
-
 }
 
 #Preview {

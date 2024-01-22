@@ -8,11 +8,9 @@
 import Foundation
 
 extension CredentialsListView {
-
     static var mock: Self {
         .init(store: .init(initialState: .mock) {
             CredentialsListFeature(closePopover: {})._printChanges()
         })
     }
-
 }

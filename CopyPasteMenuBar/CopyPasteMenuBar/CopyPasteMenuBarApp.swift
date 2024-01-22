@@ -5,12 +5,11 @@
 //  Created by Dmytro Chumakov on 12.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 @main
 struct CopyPasteMenuBarApp: App {
-
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
@@ -18,5 +17,4 @@ struct CopyPasteMenuBarApp: App {
             ContentView(appStore: .init(closePopover: {}))
         }
     }
-
 }

@@ -8,9 +8,7 @@
 import Foundation
 
 extension SwitchToAnotherTaskFeature.State {
-
     static var mock: Self {
         .init()
     }
-
 }

@@ -5,11 +5,10 @@
 //  Created by Dmytro Chumakov on 19.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct CopyTaskNumberView: View {
-
     var copyButtonTapped: () -> Void
 
     var body: some View {
@@ -17,7 +16,6 @@ struct CopyTaskNumberView: View {
             copyButtonTapped()
         }
     }
-
 }
 
 #Preview {

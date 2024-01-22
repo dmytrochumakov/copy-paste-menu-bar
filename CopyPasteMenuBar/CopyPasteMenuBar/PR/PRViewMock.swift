@@ -8,11 +8,9 @@
 import Foundation
 
 extension PRView {
-
     static var mock: Self {
         .init(store: .init(initialState: .mock) {
             PRFeature(closePopover: {})._printChanges()
         })
     }
-
 }

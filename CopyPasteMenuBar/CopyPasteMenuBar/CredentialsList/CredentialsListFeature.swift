@@ -5,8 +5,8 @@
 //  Created Dmytro Chumakov on 26.10.2023.
 //
 
-import Foundation
 import ComposableArchitecture
+import Foundation
 
 struct Credential: Hashable, Codable {
     let name: String
@@ -15,7 +15,6 @@ struct Credential: Hashable, Codable {
 
 @Reducer
 struct CredentialsListFeature {
-
     let closePopover: () -> Void
 
     private let userDefaults: UserDefaults = .standard
@@ -24,10 +23,10 @@ struct CredentialsListFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .nameFieldChanged(let newValue):
+            case let .nameFieldChanged(newValue):
                 state.nameField = newValue
                 return .none
-            case .dataFieldChanged(let newValue):
+            case let .dataFieldChanged(newValue):
                 state.dataField = newValue
                 return .none
             case .add:
@@ -36,7 +35,7 @@ struct CredentialsListFeature {
                 let encoded = try? JSONEncoder().encode(state.credentials)
                 userDefaults.set(encoded, forKey: credentialKey)
                 return .none
-            case .copy(let credential):
+            case let .copy(credential):
                 copyToPasteboard(credential.data)
                 closePopover()
                 return .none
@@ -82,5 +81,4 @@ struct CredentialsListFeature {
         case clearFields
         case openURL
     }
-
 }
