@@ -30,8 +30,10 @@ struct CredentialsListFeature {
                 state.dataField = newValue
                 return .none
             case .add:
-                state.credentials.append(.init(name: state.nameField,
-                                               data: state.dataField))
+                state.credentials.append(.init(
+                    name: state.nameField,
+                    data: state.dataField
+                ))
                 let encoded = try? JSONEncoder().encode(state.credentials)
                 userDefaults.set(encoded, forKey: credentialKey)
                 return .none
@@ -40,8 +42,7 @@ struct CredentialsListFeature {
                 closePopover()
                 return .none
             case .load:
-                guard
-                    let data = userDefaults.object(forKey: credentialKey) as? Data
+                guard let data = userDefaults.object(forKey: credentialKey) as? Data
                 else {
                     return .none
                 }

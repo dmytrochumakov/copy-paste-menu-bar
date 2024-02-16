@@ -15,8 +15,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let statusButton = statusItem.button {
-            statusButton.image = NSImage(systemSymbolName: "hammer.circle",
-                                         accessibilityDescription: "Tool")
+            statusButton.image = NSImage(
+                systemSymbolName: "hammer.circle",
+                accessibilityDescription: "Tool"
+            )
             statusButton.action = #selector(togglePopover)
         }
         popover = NSPopover()

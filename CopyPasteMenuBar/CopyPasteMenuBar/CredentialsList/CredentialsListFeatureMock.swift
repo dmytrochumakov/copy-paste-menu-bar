@@ -9,8 +9,10 @@ import Foundation
 
 extension CredentialsListFeature.State {
     static var mock: Self {
-        .init(credentials: [],
-              nameField: "",
-              dataField: "")
+        .init(
+            credentials: [],
+            nameField: "",
+            dataField: ""
+        )
     }
 }

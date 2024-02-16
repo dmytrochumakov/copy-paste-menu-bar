@@ -5,12 +5,11 @@
 //  Created by Dmytro Chumakov on 23.10.2023.
 //
 
-import Foundation
 import ComposableArchitecture
+import Foundation
 
 @Reducer
 struct QABuildReportFeature {
-
     let closePopover: () -> Void
 
     var body: some ReducerOf<Self> {
@@ -26,10 +25,12 @@ struct QABuildReportFeature {
                 state.azureLink = newValue
                 return .none
             case .copy:
-                copyToPasteboard(createQABuildReport(state.enviroment,
-                                                     cleanUp(state.firebaeLink),
-                                                     cleanUp(state.azureLink)))
-                closePopover() 
+                copyToPasteboard(createQABuildReport(
+                    state.enviroment,
+                    cleanUp(state.firebaeLink),
+                    cleanUp(state.azureLink)
+                ))
+                closePopover()
                 return .none
             case .simpleToastIsPresentedChanged(let newValue):
                 state.simpleToastIsPresented = newValue
@@ -66,56 +67,54 @@ struct QABuildReportFeature {
         case clearLinks
     }
 
-    private func createQABuildReport(_ enviroment: QABuildReportEnviroment,
-                                     _ firebaeLink: String,
-                                     _ azureLink: String) -> String {
+    private func createQABuildReport(
+        _ enviroment: QABuildReportEnviroment,
+        _ firebaeLink: String,
+        _ azureLink: String
+    ) -> String {
         let oneNewLine = "\n"
         let twoNewLines = "\n\n"
         return "ENV:"
-        +
-        oneNewLine
-        +
-        "\(enviroment.rawValue.uppercased())"
-        +
-        twoNewLines
-        +
-        "Firebase:"
-        +
-        oneNewLine
-        +
-        "\(firebaeLink)"
-        +
-        twoNewLines
-        +
-        "Azure:"
-        +
-        oneNewLine
-        +
-        "\(azureLink)"
+            +
+            oneNewLine
+            +
+            "\(enviroment.rawValue.uppercased())"
+            +
+            twoNewLines
+            +
+            "Firebase:"
+            +
+            oneNewLine
+            +
+            "\(firebaeLink)"
+            +
+            twoNewLines
+            +
+            "Azure:"
+            +
+            oneNewLine
+            +
+            "\(azureLink)"
     }
-
 }
 
 private extension QABuildReportFeature {
-
-    func cleanUp(_ inputString: String) -> String {    
-do {
-    let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-    let matches = detector.matches(in: inputString, options: [], range: NSRange(location: 0, length: inputString.utf16.count))
-    for match in matches {
-        guard let range = Range(match.range, in: inputString),
-              let url = URL(string: String(inputString[range])) else { continue }
-        print(url)
+    func cleanUp(_ inputString: String) -> String {
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+            let matches = detector.matches(in: inputString, options: [], range: NSRange(location: 0, length: inputString.utf16.count))
+            for match in matches {
+                guard let range = Range(match.range, in: inputString),
+                      let url = URL(string: String(inputString[range])) else { continue }
+                print(url)
+            }
+            if matches.isEmpty {
+                return inputString
+            } else {
+                return matches.first!.url!.absoluteString
+            }
+        } catch {
+            return inputString
+        }
     }
-    if matches.isEmpty {
-        return inputString
-    } else {
-        return matches.first!.url!.absoluteString
-    }
-} catch {
-    return inputString
-}
-
-    }
-
 }

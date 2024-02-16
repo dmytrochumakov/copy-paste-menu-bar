@@ -49,9 +49,9 @@ struct AppStore {
         gitBranchNameStore = Store(initialState: GitBranchNameFeature.State()) {
             GitBranchNameFeature(closePopover: closePopover)._printChanges()
         }
-       qaBuildReportStore = Store(initialState: QABuildReportFeature.State()) {
-                    QABuildReportFeature(closePopover: closePopover)._printChanges()
-                }
+        qaBuildReportStore = Store(initialState: QABuildReportFeature.State()) {
+            QABuildReportFeature(closePopover: closePopover)._printChanges()
+        }
         credentialsListStore = Store(initialState: CredentialsListFeature.State(credentials: [])) {
             CredentialsListFeature(closePopover: closePopover)._printChanges()
         }
@@ -61,19 +61,26 @@ struct AppStore {
 extension AppStore {
     static var mock: Self {
         let closePopover: () -> Void = {}
-        return .init(closePopover: closePopover,
-                     taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
-                         TaskNumberListFeature(closePopover: closePopover)._printChanges()
-                     }, prStore: Store(initialState: PRFeature.State.mock) {
-                         PRFeature(closePopover: closePopover)._printChanges()
-                     }, switchToAnotherTaskStore: Store(initialState: SwitchToAnotherTaskFeature.State.mock) {
-                         SwitchToAnotherTaskFeature(closePopover: closePopover)._printChanges()
-                     }, gitBranchNameStore: Store(initialState: GitBranchNameFeature.State.mock) {
-                         GitBranchNameFeature(closePopover: closePopover)._printChanges()
-                     }, qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
-                         QABuildReportFeature(closePopover: closePopover)._printChanges()
-                     }, credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
-                         CredentialsListFeature(closePopover: closePopover)._printChanges()
-                     })
+        return .init(
+            closePopover: closePopover,
+            taskListStore: Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
+                TaskNumberListFeature(closePopover: closePopover)._printChanges()
+            },
+            prStore: Store(initialState: PRFeature.State.mock) {
+                PRFeature(closePopover: closePopover)._printChanges()
+            },
+            switchToAnotherTaskStore: Store(initialState: SwitchToAnotherTaskFeature.State.mock) {
+                SwitchToAnotherTaskFeature(closePopover: closePopover)._printChanges()
+            },
+            gitBranchNameStore: Store(initialState: GitBranchNameFeature.State.mock) {
+                GitBranchNameFeature(closePopover: closePopover)._printChanges()
+            },
+            qaBuildReportStore: Store(initialState: QABuildReportFeature.State()) {
+                QABuildReportFeature(closePopover: closePopover)._printChanges()
+            },
+            credentialsListStore: Store(initialState: CredentialsListFeature.State.mock) {
+                CredentialsListFeature(closePopover: closePopover)._printChanges()
+            }
+        )
     }
 }

@@ -39,8 +39,7 @@ struct TaskNumberListFeature {
                 closePopover()
                 return .none
             case .load:
-                guard
-                    let data = userDefaults.object(forKey: taskKey) as? Data
+                guard let data = userDefaults.object(forKey: taskKey) as? Data
                 else {
                     return .none
                 }

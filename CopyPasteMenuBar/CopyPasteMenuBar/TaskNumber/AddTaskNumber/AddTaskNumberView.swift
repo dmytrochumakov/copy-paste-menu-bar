@@ -16,8 +16,10 @@ struct AddTaskNumberView: View {
     var body: some View {
         VStack {
             TextField("task number", text: $taskNumber)
-                .modifier(TextFieldClearButtonModifier(text: $taskNumber,
-                                                       clearButtonTapped: clearButtonTapped))
+                .modifier(TextFieldClearButtonModifier(
+                    text: $taskNumber,
+                    clearButtonTapped: clearButtonTapped
+                ))
             Button("add task number") {
                 addTaskButtonTapped()
             }
@@ -27,7 +29,9 @@ struct AddTaskNumberView: View {
 }
 
 #Preview {
-    AddTaskNumberView(taskNumber: .constant(""),
-                      addTaskButtonTapped: {},
-                      clearButtonTapped: {})
+    AddTaskNumberView(
+        taskNumber: .constant(""),
+        addTaskButtonTapped: {},
+        clearButtonTapped: {}
+    )
 }

@@ -19,10 +19,12 @@ struct CredentialsListView: View {
                         Text(credential.name)
                         HStack {
                             if credential.data.contains("https") {
-                                Link(destination: URL(string: credential.data)!,
-                                     label: {
-                                         Text(credential.data)
-                                     }).environment(\.openURL, OpenURLAction { _ in
+                                Link(
+                                    destination: URL(string: credential.data)!,
+                                    label: {
+                                        Text(credential.data)
+                                    }
+                                ).environment(\.openURL, OpenURLAction { _ in
                                     viewStore.send(.openURL)
                                     return .systemAction
                                 })
@@ -40,10 +42,12 @@ struct CredentialsListView: View {
                         Text("Enter credential name")
                         let nameField = viewStore.binding(get: \.nameField, send: { .nameFieldChanged($0) })
                         TextField("", text: nameField)
-                            .modifier(TextFieldClearButtonModifier(text: nameField,
-                                                                   clearButtonTapped: {
-                                                                       viewStore.send(.clearNameField)
-                                                                   }))
+                            .modifier(TextFieldClearButtonModifier(
+                                text: nameField,
+                                clearButtonTapped: {
+                                    viewStore.send(.clearNameField)
+                                }
+                            ))
                     }
                     Group {
                         Text("Enter credential data")

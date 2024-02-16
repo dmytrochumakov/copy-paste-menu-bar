@@ -5,11 +5,10 @@
 //  Created by Dmytro Chumakov on 23.10.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct QABuildReportView: View {
-
     var store: StoreOf<QABuildReportFeature>
 
     var body: some View {
@@ -25,19 +24,24 @@ struct QABuildReportView: View {
                     Text("Enter Azure link")
                     let azureLink = viewStore.binding(get: \.azureLink, send: { .azureLinkChanged($0) })
                     TextField("", text: azureLink)
-                        .modifier(TextFieldClearButtonModifier(text: azureLink, 
-                                                               clearButtonTapped: {
-                            viewStore.send(.clearAzureLink)
-                        }))
+                        .modifier(TextFieldClearButtonModifier(
+                            text: azureLink,
+
+                            clearButtonTapped: {
+                                viewStore.send(.clearAzureLink)
+                            }
+                        ))
                 }
                 Group {
                     Text("Enter Firebae link")
                     let firebaeLink = viewStore.binding(get: \.firebaeLink, send: { .firebaeLinkChanged($0) })
                     TextField("", text: firebaeLink)
-                        .modifier(TextFieldClearButtonModifier(text: firebaeLink,
-                                                               clearButtonTapped: {
-                            viewStore.send(.clearFirebaeLink)
-                        }))
+                        .modifier(TextFieldClearButtonModifier(
+                            text: firebaeLink,
+                            clearButtonTapped: {
+                                viewStore.send(.clearFirebaeLink)
+                            }
+                        ))
                 }
                 Button("Copy") {
                     viewStore.send(.copy)
@@ -47,7 +51,6 @@ struct QABuildReportView: View {
             .padding()
         }
     }
-
 }
 
 #Preview {

@@ -33,10 +33,13 @@ struct GitBranchNameView: View {
 
 private extension GitBranchNameView {
     func gitBranchTypePickerView(_ viewStore: ViewStoreOf<GitBranchNameFeature>) -> some View {
-        Picker("Pick branch type",
-               selection: viewStore.binding(get: \.branchType,
-                                            send: { .branchTypeChanged($0) }))
-        {
+        Picker(
+            "Pick branch type",
+            selection: viewStore.binding(
+                get: \.branchType,
+                send: { .branchTypeChanged($0) }
+            )
+        ) {
             ForEach(GitBranchType.allCases, id: \.self) {
                 Text($0.rawValue)
             }

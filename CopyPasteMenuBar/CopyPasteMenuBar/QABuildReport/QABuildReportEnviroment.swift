@@ -8,11 +8,9 @@
 import Foundation
 
 enum QABuildReportEnviroment: String, CaseIterable {
-
     case stage
     case prod
     case test
     case dev
     case unknown
-
 }
