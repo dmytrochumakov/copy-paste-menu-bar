@@ -25,6 +25,7 @@ struct ContentView: View {
                         PRView(store: appStore.prStore)
                         SwitchToAnotherTaskView(store: appStore.switchToAnotherTaskStore)
                         GitBranchNameView(store: appStore.gitBranchNameStore)
+                        QABuildReportView(store: appStore.qaBuildReportStore)
                         CredentialsListView(store: appStore.credentialsListStore)
                     }
                 }
