@@ -5,7 +5,7 @@
 //  Created by Dmytro Chumakov on 12.10.2023.
 //
 
-import ComposableArchitecture
+import Packages
 import SwiftUI
 
 @main

@@ -5,7 +5,7 @@
 //  Created by Dmytro Chumakov on 19.10.2023.
 //
 
-import ComposableArchitecture
+import Packages
 import SwiftUI
 
 final class AppDelegate: NSObject, NSApplicationDelegate {

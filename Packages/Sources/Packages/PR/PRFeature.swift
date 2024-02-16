@@ -1,5 +1,5 @@
 //
-//  SwitchToAnotherTaskFeature.swift
+//  PRFeature.swift
 //  CopyPasteMenuBar
 //
 //  Created Dmytro Chumakov on 08.01.2024.
@@ -8,10 +8,10 @@
 import ComposableArchitecture
 
 @Reducer
-struct SwitchToAnotherTaskFeature {
+public struct PRFeature {
     let closePopover: () -> Void
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case let .linkChanged(link):
@@ -27,11 +27,11 @@ struct SwitchToAnotherTaskFeature {
         }
     }
 
-    struct State: Equatable {
+    public struct State: Equatable {
         var link: String = ""
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case linkChanged(String)
         case copy
     }
@@ -39,8 +39,8 @@ struct SwitchToAnotherTaskFeature {
 
 // MARK: - Private
 
-private extension SwitchToAnotherTaskFeature {
+private extension PRFeature {
     static func text(_ link: String) -> String {
-        "switched to task:\n\(link)"
+        "PR: \n\(link)"
     }
 }

@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-struct AppStore {
+public struct AppStore {
     let closePopover: () -> Void
 
     let taskListStore: StoreOf<TaskNumberListFeature>
@@ -17,7 +17,7 @@ struct AppStore {
     let qaBuildReportStore: StoreOf<QABuildReportFeature>
     let credentialsListStore: StoreOf<CredentialsListFeature>
 
-    init(
+    public init(
         closePopover: @escaping () -> Void,
         taskListStore: StoreOf<TaskNumberListFeature>,
         prStore: StoreOf<PRFeature>,
@@ -35,7 +35,7 @@ struct AppStore {
         self.credentialsListStore = credentialsListStore
     }
 
-    init(closePopover: @escaping () -> Void) {
+    public init(closePopover: @escaping () -> Void) {
         self.closePopover = closePopover
         taskListStore = Store(initialState: TaskNumberListFeature.State(taskNumbers: [])) {
             TaskNumberListFeature(closePopover: closePopover)._printChanges()

@@ -8,11 +8,15 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ContentView: View {
+public struct ContentView: View {
     private let scrollTopID = "topId"
-    let appStore: AppStore
+    private let appStore: AppStore
 
-    var body: some View {
+    public init(appStore: AppStore) {
+        self.appStore = appStore
+    }
+
+    public var body: some View {
         VStack {
             Button("Quit") {
                 NSApplication.shared.terminate(nil)

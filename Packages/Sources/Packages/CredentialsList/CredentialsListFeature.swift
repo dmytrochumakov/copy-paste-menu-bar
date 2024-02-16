@@ -8,19 +8,19 @@
 import ComposableArchitecture
 import Foundation
 
-struct Credential: Hashable, Codable {
+public struct Credential: Hashable, Codable {
     let name: String
     let data: String
 }
 
 @Reducer
-struct CredentialsListFeature {
+public struct CredentialsListFeature {
     let closePopover: () -> Void
 
     private let userDefaults: UserDefaults = .standard
     private let credentialKey = "credentialKey"
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case let .nameFieldChanged(newValue):
@@ -65,13 +65,13 @@ struct CredentialsListFeature {
         }
     }
 
-    struct State: Equatable {
+    public struct State: Equatable {
         var credentials: [Credential]
         var nameField: String = ""
         var dataField: String = ""
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case nameFieldChanged(_ newValue: String)
         case dataFieldChanged(_ newValue: String)
         case add

@@ -13,13 +13,13 @@ struct TaskNumber: Equatable, Codable, Hashable {
 }
 
 @Reducer
-struct TaskNumberListFeature {
+public struct TaskNumberListFeature {
     private let userDefaults: UserDefaults = .standard
     private let taskKey = "userDefaultsTaskKey"
 
     let closePopover: () -> Void
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .addTaskNumber:
@@ -60,12 +60,12 @@ struct TaskNumberListFeature {
         }
     }
 
-    struct State: Equatable {
+    public struct State: Equatable {
         var taskNumbers: [TaskNumber]
         var taskNumber: String = ""
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case addTaskNumber
         case copyTaskNumber(_ index: Int)
         case copyNumber(_ index: Int)

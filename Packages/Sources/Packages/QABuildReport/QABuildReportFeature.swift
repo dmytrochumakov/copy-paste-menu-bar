@@ -9,10 +9,10 @@ import ComposableArchitecture
 import Foundation
 
 @Reducer
-struct QABuildReportFeature {
+public struct QABuildReportFeature {
     let closePopover: () -> Void
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .enviromentChanged(let newValue):
@@ -49,14 +49,14 @@ struct QABuildReportFeature {
         }
     }
 
-    struct State: Equatable {
+    public struct State: Equatable {
         var enviroment = QABuildReportEnviroment.unknown
         var firebaeLink = ""
         var azureLink = ""
         var simpleToastIsPresented: Bool = false
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case enviromentChanged(_ newValue: QABuildReportEnviroment)
         case firebaeLinkChanged(_ newValue: String)
         case azureLinkChanged(_ newValue: String)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GitBranchType: String, CaseIterable {
+public enum GitBranchType: String, CaseIterable {
     case feature
     case bugfix
     case unknown

@@ -9,10 +9,10 @@ import ComposableArchitecture
 import Foundation
 
 @Reducer
-struct GitBranchNameFeature {
+public struct GitBranchNameFeature {
     let closePopover: () -> Void
 
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case let .branchTypeChanged(newValue):
@@ -35,13 +35,13 @@ struct GitBranchNameFeature {
         }
     }
 
-    struct State: Equatable {
+    public struct State: Equatable {
         var branchType = GitBranchType.unknown
         var taskNumber = ""
         var branchName = ""
     }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case branchTypeChanged(_ newValue: GitBranchType)
         case taskNumberChanged(_ newValue: String)
         case branchNameChanged(_ newValue: String)

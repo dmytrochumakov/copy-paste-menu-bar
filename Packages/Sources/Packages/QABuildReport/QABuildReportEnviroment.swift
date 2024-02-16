@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QABuildReportEnviroment: String, CaseIterable {
+public enum QABuildReportEnviroment: String, CaseIterable {
     case stage
     case prod
     case test
