@@ -5,6 +5,7 @@
 //  Created by Dmytro Chumakov on 23.10.2023.
 //
 
+import Foundation
 import ComposableArchitecture
 
 @Reducer
@@ -97,10 +98,24 @@ struct QABuildReportFeature {
 
 private extension QABuildReportFeature {
 
-    func cleanUp(_ link: String) -> String {
-        link
-            .replacingOccurrences(of: "\"", with: "")
-            .replacingOccurrences(of: "?", with: "")
+    func cleanUp(_ inputString: String) -> String {    
+do {
+    let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+    let matches = detector.matches(in: inputString, options: [], range: NSRange(location: 0, length: inputString.utf16.count))
+    for match in matches {
+        guard let range = Range(match.range, in: inputString),
+              let url = URL(string: String(inputString[range])) else { continue }
+        print(url)
+    }
+    if matches.isEmpty {
+        return inputString
+    } else {
+        return matches.first!.url!.absoluteString
+    }
+} catch {
+    return inputString
+}
+
     }
 
 }
