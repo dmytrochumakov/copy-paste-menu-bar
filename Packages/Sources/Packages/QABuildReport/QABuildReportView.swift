@@ -45,10 +45,13 @@ struct QABuildReportView: View {
                 }
                 Button("Copy") {
                     viewStore.send(.copy)
-                    viewStore.send(.clearLinks)
                 }
             }
             .padding()
+        }
+        .onKeyPress(.return) {
+            store.send(.copy)
+            return .ignored
         }
     }
 }

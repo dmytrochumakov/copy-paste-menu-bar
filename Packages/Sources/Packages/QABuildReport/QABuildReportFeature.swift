@@ -31,6 +31,7 @@ public struct QABuildReportFeature {
                     cleanUp(state.azureLink)
                 ))
                 closePopover()
+                state = State()
                 return .none
             case .simpleToastIsPresentedChanged(let newValue):
                 state.simpleToastIsPresented = newValue
@@ -39,10 +40,6 @@ public struct QABuildReportFeature {
                 state.azureLink = ""
                 return .none
             case .clearFirebaeLink:
-                state.firebaeLink = ""
-                return .none
-            case .clearLinks:
-                state.azureLink = ""
                 state.firebaeLink = ""
                 return .none
             }
@@ -64,7 +61,6 @@ public struct QABuildReportFeature {
         case simpleToastIsPresentedChanged(_ newValue: Bool)
         case clearAzureLink
         case clearFirebaeLink
-        case clearLinks
     }
 
     private func createQABuildReport(
