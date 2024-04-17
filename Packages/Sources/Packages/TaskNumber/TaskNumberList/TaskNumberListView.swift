@@ -18,6 +18,9 @@ struct TaskNumberListView: View {
                     taskNumberView(viewStore.taskNumbers[index].number)
                     Spacer()
                     HStack {
+                        Button("link") {
+                            viewStore.send(.linkTapped(index))
+                        }
                         Button("Copy number") {
                             viewStore.send(.copyNumber(index))
                         }

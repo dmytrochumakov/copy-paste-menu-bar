@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Foundation
+import AppKit
 
 struct TaskNumber: Equatable, Codable, Hashable {
     let number: String
@@ -56,6 +57,12 @@ public struct TaskNumberListFeature {
             case let .taskNumberChanged(newValue):
                 state.taskNumber = newValue
                 return .none
+
+            case let .linkTapped(index):                
+                let number = state.taskNumbers[index].number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                let url = URL(string: "https://dev.azure.com/competommc/Marketplace/_workitems/edit/\(number)/")!
+                NSWorkspace.shared.open(url)
+                return .none
             }
         }
     }
@@ -73,5 +80,6 @@ public struct TaskNumberListFeature {
         case delete(_ index: Int)
         case clearTaskNumberField
         case taskNumberChanged(_ newValue: String)
+        case linkTapped(_ index: Int)
     }
 }
