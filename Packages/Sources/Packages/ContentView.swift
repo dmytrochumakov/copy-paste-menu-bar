@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct ContentView: View {
     private let scrollTopID = "topId"
+    private let scrollBottomID = "bottomId"
     private let appStore: AppStore
 
     public init(appStore: AppStore) {
@@ -31,18 +32,29 @@ public struct ContentView: View {
                         GitBranchNameView(store: appStore.gitBranchNameStore)
                         QABuildReportView(store: appStore.qaBuildReportStore)
                         CredentialsListView(store: appStore.credentialsListStore)
+                            .id(scrollBottomID)
                     }
                 }
                 .overlay(alignment: .trailing) {
                     VStack {
                         Spacer()
-                        Button {
-                            withAnimation {
-                                reader.scrollTo(scrollTopID, anchor: .top)
+                        HStack {
+                            Button {
+                                withAnimation {
+                                    reader.scrollTo(scrollBottomID, anchor: .bottom)
+                                }
+                            } label: {
+                                Image(systemName: "arrow.down.circle")
+                                    .frame(width: 32, height: 32)
                             }
-                        } label: {
-                            Image(systemName: "arrow.up.circle")
-                                .frame(width: 32, height: 32)
+                            Button {
+                                withAnimation {
+                                    reader.scrollTo(scrollTopID, anchor: .top)
+                                }
+                            } label: {
+                                Image(systemName: "arrow.up.circle")
+                                    .frame(width: 32, height: 32)
+                            }
                         }
                     }
                 }
