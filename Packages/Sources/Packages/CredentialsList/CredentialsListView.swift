@@ -34,6 +34,9 @@ struct CredentialsListView: View {
                             Button("Copy data") {
                                 viewStore.send(.copy(credential))
                             }
+                            Button("Delete") {
+                                viewStore.send(.delete(credential))
+                            }
                         }
                     }
                 }

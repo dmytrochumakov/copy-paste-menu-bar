@@ -41,6 +41,14 @@ public struct CredentialsListFeature {
                 copyToPasteboard(credential.data)
                 closePopover()
                 return .none
+            case .delete(let credential):
+                guard
+                    let index = state.credentials.firstIndex(where: { $0 == credential })
+                else { return .none }
+                state.credentials.remove(at: index)
+                let encoded = try? JSONEncoder().encode(state.credentials)
+                userDefaults.set(encoded, forKey: credentialKey)
+                return .none
             case .load:
                 guard let data = userDefaults.object(forKey: credentialKey) as? Data
                 else {
@@ -76,6 +84,7 @@ public struct CredentialsListFeature {
         case dataFieldChanged(_ newValue: String)
         case add
         case copy(_ credential: Credential)
+        case delete(_ credential: Credential)
         case load
         case clearNameField
         case clearDataField
