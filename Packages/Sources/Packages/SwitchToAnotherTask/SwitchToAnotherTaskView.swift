@@ -14,8 +14,8 @@ struct SwitchToAnotherTaskView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             HStack {
-                TextField("Task link:", text: viewStore.binding(get: \.link,
-                                                                send: { .linkChanged($0) }))
+                TextField("Task number:", text: viewStore.binding(get: \.taskNumber,
+                                                                send: { .taskNumberChanged($0) }))
                 Button("Copy") {
                     viewStore.send(.copy)
                 }

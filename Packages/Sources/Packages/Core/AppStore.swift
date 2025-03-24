@@ -43,7 +43,7 @@ public struct AppStore {
         prStore = Store(initialState: PRFeature.State(link: "")) {
             PRFeature(closePopover: closePopover)._printChanges()
         }
-        switchToAnotherTaskStore = Store(initialState: SwitchToAnotherTaskFeature.State(link: "")) {
+        switchToAnotherTaskStore = Store(initialState: SwitchToAnotherTaskFeature.State(taskNumber: "")) {
             SwitchToAnotherTaskFeature(closePopover: closePopover)._printChanges()
         }
         gitBranchNameStore = Store(initialState: GitBranchNameFeature.State()) {

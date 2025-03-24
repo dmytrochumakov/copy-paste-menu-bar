@@ -14,12 +14,12 @@ public struct SwitchToAnotherTaskFeature {
     public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case let .linkChanged(link):
-                state.link = link
+            case let .taskNumberChanged(taskNumber):
+                state.taskNumber = taskNumber
                 return .none
 
             case .copy:
-                copyToPasteboard(Self.text(state.link))
+                copyToPasteboard(Self.text(state.taskNumber))
                 state = State()
                 closePopover()
                 return .none
@@ -28,11 +28,11 @@ public struct SwitchToAnotherTaskFeature {
     }
 
     public struct State: Equatable {
-        var link: String = ""
+        var taskNumber: String = ""
     }
 
     public enum Action: Equatable {
-        case linkChanged(String)
+        case taskNumberChanged(String)
         case copy
     }
 }
@@ -40,7 +40,8 @@ public struct SwitchToAnotherTaskFeature {
 // MARK: - Private
 
 private extension SwitchToAnotherTaskFeature {
-    static func text(_ link: String) -> String {
-        "switched to task:\n\(link)"
+    static func text(_ taskNumber: String) -> String {
+        let link = "https://dev.azure.com/competommc/Marketplace/_workitems/edit/\(taskNumber)"
+        return "switched to task:\n\(link)"
     }
 }
